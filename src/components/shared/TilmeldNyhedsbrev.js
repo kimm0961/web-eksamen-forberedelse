@@ -2,22 +2,20 @@ import React, { useState } from "react";
 import { tilmeldNyhedsbrev } from "../API/NyhedsbrevAPI";
 
 function TilmeldNyhedsbrev() {
-
-  //* State */
+  //* State nyhedsbrev */
   const [nyhedsbrev, setNyhedsbrev] = useState({ email: "" });
 
-  //* Email */ 
+  //* Email */
   const handleEmail = (e) => {
     setNyhedsbrev({ email: e.target.value });
   };
 
   //* Submit */
   const handleSubmit = (e) => {
+    e.preventDefault();
     // console.log(nyhedsbrev);
-
     (async () => {
       setNyhedsbrev(await tilmeldNyhedsbrev(nyhedsbrev));
-      e.preventDefault();
     })();
   };
 
@@ -34,7 +32,7 @@ function TilmeldNyhedsbrev() {
         type="email"
         id="inputEmail"
         placeholder="Din email"
-        value={nyhedsbrev.email}
+        value={nyhedsbrev.email || ""}
         onChange={handleEmail}
       ></input>
       <button type="submit" value="Submit" className="btn btn-primary">
