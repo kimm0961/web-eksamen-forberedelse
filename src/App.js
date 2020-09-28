@@ -9,6 +9,7 @@ import Navbar from "./components/header/Navbar";
 import Forside from "./components/pages/forside/Forside";
 import Kontakt from "./components/pages/kontakt/Kontakt";
 import OmOs from "./components/pages/om-os/OmOs";
+import Event from "./components/shared/Event";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" component={Forside} />
           <Route path="/om-os" component={OmOs} />
           <Route path="/kontakt" component={Kontakt} />
+          <Route exact path="/:event_id" component={Event} />
           {/* <Route excat path="/opret" component={Cartoonopret} />
           <Route exact path="/ret/:cartoonData_id" component={Cartoonret} />
           <Route exact path="/slet/:cartoonData_id" component={Cartoonslet} />
