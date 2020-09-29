@@ -53,6 +53,21 @@ export const hentEvent = async (eventData_id) => {
   }
 };
 
+// POST - opret
+export const opretEvent = async (eventData, eventBillede) => {
+  try {
+    // gør data og billede klar til at blive sendt som formdata
+    const formdata = new FormData();
+    formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
+    formdata.append('billede', eventBillede);
+
+    let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+    return res.data;
+  } catch (error) {
+    console.log("Fejl:", error);
+  }
+};
+
 // GET - søg
 export const eventSoegSimple = async (soegeord) => {
   try {

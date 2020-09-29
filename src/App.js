@@ -21,6 +21,7 @@ import Login from "./components/login/Login";
 import Admin from "./components/ADMIN/Admin";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
+import Opret from "./components/ADMIN/Opret";
 
 const PrivateRoute = ({ component, ...options }) => {
   const { loggedIn } = useContext(AuthDataContext);
@@ -48,8 +49,8 @@ function App() {
               <Route path="/kontakt" component={Kontakt} />
               <Route exact path="/:event_id" component={Event} />
               <Route exact path="/soeg/:soegeord" component={EventSoeg} />
-              {/* <PrivateRoute excat path="/opret" component={GaadeOpret} />
-          <PrivateRoute exact path="/ret/:gaadeData_id" component={GaadeRet} />
+              <PrivateRoute excat path="/admin/opret" component={Opret} />
+          {/* <PrivateRoute exact path="/ret/:gaadeData_id" component={GaadeRet} />
           <PrivateRoute exact path="/slet/:gaadeData_id" component={GaadeSlet} /> */}
             </Switch>
           </main>
