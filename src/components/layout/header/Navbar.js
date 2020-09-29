@@ -1,11 +1,57 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useHistory } from "react-router-dom";
+import { AuthDataContext } from "../../context/AuthDataContext";
+import { BrugerLogout } from "../../API/AuthAPI";
 
 function Navbar() {
   //* State soeg */
   const [Soeg, setSoeg] = useState();
 
+  const { loggedIn, onLogout } = useContext(AuthDataContext);
+  const [error, setError] = useState(null);
+  const history = useHistory();
+
+  const handleLogout = () => {
+    BrugerLogout()
+      .then((data) => {
+        onLogout();
+        history.push("/");
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        setError("Der er sket en fejl - " + error.message);
+      });
+  };
+
+  let loginlogout;
+
+  if (loggedIn) {
+    loginlogout = (
+      <>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin">
+            Admin
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Logud
+          </button>
+        </li>
+      </>
+    );
+  } else {
+    loginlogout = (
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/login">
+          Login
+        </NavLink>
+      </li>
+    );
+  }
+
   return (
+    <>
     <nav className="Navbar navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container px-0">
         <Link className="navbar-brand d-none d-sm-block" to="/">
@@ -44,6 +90,7 @@ function Navbar() {
                 Kontakt
               </NavLink>
             </li>
+            {loginlogout}
           </ul>
           <form action={"/soeg/" + Soeg} className="form-inline">
             <input
@@ -62,6 +109,8 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    <h2>{error ? <span>{error}</span> : null}</h2>
+    </>
   );
 }
 

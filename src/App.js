@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+// Context
+import AuthDataProvider from "./components/context/AuthDataContext";
+
 // Header & Footer
-import Footer from "./components/footer/Footer";
-import Navbar from "./components/header/Navbar";
+import Footer from "./components/layout/footer/Footer";
+import Navbar from "./components/layout/header/Navbar";
 
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
@@ -13,25 +16,46 @@ import OmOs from "./components/pages/om-os/OmOsPage";
 import Kontakt from "./components/pages/kontakt/KontaktPage";
 import EventSoeg from "./components/pages/events/EventSoeg";
 
+// Admin
+import Login from "./components/login/Login";
+import Admin from "./components/ADMIN/Admin";
+
+import { AuthDataContext } from "./components/context/AuthDataContext";
+
+const PrivateRoute = ({ component, ...options }) => {
+  const { loggedIn } = useContext(AuthDataContext);
+  console.log("privateroute: loggedIn", loggedIn);
+
+  const finalComponent = loggedIn ? component : Login;
+  return <Route {...options} component={finalComponent} />;
+};
+
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Forside} />
-          <Route path="/events" component={Events} />
-          <Route path="/om-os" component={OmOs} />
-          <Route path="/kontakt" component={Kontakt} />
-          <Route exact path="/:event_id" component={Event} />
-          <Route exact path="/soeg/:soegeord" component={EventSoeg} />
-          {/* <Route excat path="/opret" component={Cartoonopret} />
-          <Route exact path="/ret/:cartoonData_id" component={Cartoonret} />
-          <Route exact path="/slet/:cartoonData_id" component={Cartoonslet} />
-          <Route exact path="/soeg/:soegeord" component={JokeSoeg} /> */}
-        </Switch>
-        <Footer />
-      </div>
+      <AuthDataProvider>
+        <div className="App">
+          <header>
+            <Navbar />
+          </header>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Forside} />
+              <Route exact path="/login" component={Login} />
+              <PrivateRoute exact path="/admin" component={Admin} />
+              <Route path="/events" component={Events} />
+              <Route path="/om-os" component={OmOs} />
+              <Route path="/kontakt" component={Kontakt} />
+              <Route exact path="/:event_id" component={Event} />
+              <Route exact path="/soeg/:soegeord" component={EventSoeg} />
+              {/* <PrivateRoute excat path="/opret" component={GaadeOpret} />
+          <PrivateRoute exact path="/ret/:gaadeData_id" component={GaadeRet} />
+          <PrivateRoute exact path="/slet/:gaadeData_id" component={GaadeSlet} /> */}
+            </Switch>
+          </main>
+          <Footer />
+        </div>
+      </AuthDataProvider>
     </BrowserRouter>
   );
 }
