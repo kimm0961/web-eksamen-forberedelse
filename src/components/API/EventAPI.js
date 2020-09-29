@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const eventAPI = {
-  baseUrl: "http://localhost:5021/event"
+  baseUrl: "http://localhost:5021/event",
 };
-
 
 // GET - alle
 export const hentAlleEvents = async () => {
@@ -27,3 +26,13 @@ export const hentEvent = async (eventData_id) => {
   }
 };
 
+// GET - søg
+export const eventSoegSimple = async (soegeord) => {
+  try {
+    let res = await axios.get(eventAPI.baseUrl + "/soeg/" + soegeord);
+    // console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log("Fejl:", error);
+  }
+};

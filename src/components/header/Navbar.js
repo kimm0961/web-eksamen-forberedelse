@@ -1,8 +1,10 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
+  //* State soeg */
+  const [Soeg, setSoeg] = useState();
+
   return (
     <nav className="Navbar navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container px-0">
@@ -43,6 +45,20 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
+          <form action={"/soeg/" + Soeg} className="form-inline">
+            <input
+              id="inpSoeg"
+              className="form-control"
+              type="search"
+              onChange={(e) => {
+                setSoeg(e.target.value);
+              }}
+              aria-label="Søg"
+            />
+            <button className="btn btn-dark" type="submit">
+              Søg
+            </button>
+          </form>
         </div>
       </div>
     </nav>

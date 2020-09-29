@@ -11,6 +11,7 @@ import Events from "./components/pages/events/Events";
 import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOs";
 import Kontakt from "./components/pages/kontakt/Kontakt";
+import EventSoeg from "./components/pages/events/EventSoeg";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/om-os" component={OmOs} />
           <Route path="/kontakt" component={Kontakt} />
           <Route exact path="/:event_id" component={Event} />
+          <Route exact path="/soeg/:soegeord" component={EventSoeg} />
           {/* <Route excat path="/opret" component={Cartoonopret} />
           <Route exact path="/ret/:cartoonData_id" component={Cartoonret} />
           <Route exact path="/slet/:cartoonData_id" component={Cartoonslet} />
