@@ -5,11 +5,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/header/Navbar";
 
-// Pages 
+// Pages
 import Forside from "./components/pages/forside/Forside";
-import Kontakt from "./components/pages/kontakt/Kontakt";
+import Events from "./components/pages/events/Events";
+import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOs";
-import Event from "./components/shared/Event";
+import Kontakt from "./components/pages/kontakt/Kontakt";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Forside} />
+          <Route path="/events" component={Events} />
           <Route path="/om-os" component={OmOs} />
           <Route path="/kontakt" component={Kontakt} />
           <Route exact path="/:event_id" component={Event} />

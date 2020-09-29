@@ -1,13 +1,11 @@
-import React from 'react'
-import Card from '../../shared/Card'
+import React from "react";
 
 function OmOs() {
-    return (
-        <div>
-            <h1>Om os</h1>
-            <Card />
-        </div>
-    )
+  return (
+    <div>
+      <h1>Om os</h1>
+    </div>
+  );
 }
 
-export default OmOs
+export default OmOs;

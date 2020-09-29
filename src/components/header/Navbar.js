@@ -28,6 +28,11 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/events">
+                Events
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/om-os">
                 Om Os
               </NavLink>
