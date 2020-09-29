@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { hentAlleEvents } from "../../API/EventAPI";
 
-const Card = () => {
+const EventCard = () => {
   //* State */
 
   const [oevelser, setOevelser] = useState([]);
@@ -19,6 +19,9 @@ const Card = () => {
 
   if (oevelser.length > 0) {
     eventList = oevelser.map((e) => {
+      // let d = new Date(e.dato);
+      // let n = d.toLocaleDateString();
+      // console.log(n);
       return (
         <div className="col-md-6 col-lg-4" key={e._id}>
           <div className="card mb-4 shadow">
@@ -50,4 +53,4 @@ const Card = () => {
   return <div className="card-deck row">{eventList}</div>;
 };
 
-export default Card;
+export default EventCard;

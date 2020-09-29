@@ -1,14 +1,14 @@
 import React from 'react'
 // Components
-import Card from './Card'
+import Cards from './EventCard'
 
-function Events() {
+function EventsPage() {
     return (
         <div>
             <h1>Events</h1>
-            <Card />
+            <Cards />
         </div>
     )
 }
 
-export default Events
+export default EventsPage

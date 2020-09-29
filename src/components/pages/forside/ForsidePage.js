@@ -1,7 +1,7 @@
 import React from 'react'
 import TilmeldNyhedsbrev from '../../shared/TilmeldNyhedsbrev'
 
-function Forside() {
+function ForsidePage() {
     return (
         <div>
             <h1>Forside</h1>
@@ -10,4 +10,4 @@ function Forside() {
     )
 }
 
-export default Forside
+export default ForsidePage

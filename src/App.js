@@ -6,11 +6,11 @@ import Footer from "./components/footer/Footer";
 import Navbar from "./components/header/Navbar";
 
 // Pages
-import Forside from "./components/pages/forside/Forside";
-import Events from "./components/pages/events/Events";
+import Forside from "./components/pages/forside/ForsidePage";
+import Events from "./components/pages/events/EventsPage";
 import Event from "./components/pages/events/Event";
-import OmOs from "./components/pages/om-os/OmOs";
-import Kontakt from "./components/pages/kontakt/Kontakt";
+import OmOs from "./components/pages/om-os/OmOsPage";
+import Kontakt from "./components/pages/kontakt/KontaktPage";
 import EventSoeg from "./components/pages/events/EventSoeg";
 
 function App() {

@@ -2,7 +2,7 @@ import React from 'react'
 //Components
 import KontaktForm from './KontaktForm'
 
-function Kontakt() {
+function KontaktPage() {
     return (
         <div>
             <h1>Kontakt</h1>
@@ -11,4 +11,4 @@ function Kontakt() {
     )
 }
 
-export default Kontakt
+export default KontaktPage

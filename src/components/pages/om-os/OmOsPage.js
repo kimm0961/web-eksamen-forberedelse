@@ -1,6 +1,6 @@
 import React from "react";
 
-function OmOs() {
+function OmOsPage() {
   return (
     <div>
       <h1>Om os</h1>
@@ -8,4 +8,4 @@ function OmOs() {
   );
 }
 
-export default OmOs;
+export default OmOsPage;
