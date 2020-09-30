@@ -31,14 +31,19 @@ for (i = 0; i < res.data.length; i++) {
 
 // GET - alle
 export const hentAlleEvents = async () => {
-  try {
-    let res = await axios.get(eventAPI.baseUrl);
-    OmskrivDato(res);
-    // console.log(res.data);
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
+  // // Min kode
+  // try {
+  //   let res = await axios.get(eventAPI.baseUrl);
+  //   OmskrivDato(res);
+  //   // console.log(res.data);
+  //   return res.data;
+  // } catch (error) {
+  //   console.log("Fejl:", error);
+  // }
+
+  // Mariannes kode
+  let response = await axios.get(eventAPI.baseUrl).then(response => {return response.data}).catch(error => {return "error"})
+  return response;
 };
 
 // GET - ud fra id
@@ -53,20 +58,63 @@ export const hentEvent = async (eventData_id) => {
   }
 };
 
-// POST - opret
-export const opretEvent = async (eventData, eventBillede) => {
-  try {
-    // gør data og billede klar til at blive sendt som formdata
-    const formdata = new FormData();
-    formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
-    formdata.append('billede', eventBillede);
+// // POST - opret
+// export const opretEvent = async (eventData) => {
+//   try {
+//     // gør data og billede klar til at blive sendt som formdata
+//     const formdata = new FormData();
+//     formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
+//     formdata.append('billede', eventBillede);
 
-    let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
+
+// POST - opret en
+export const opretEvent = async (eventData) => {
+  try {
+    let res = await axios.post(eventAPI.baseUrl + "/admin", eventData, {
+      withCredentials: true,
+    });
+    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log("Fejl:", error);
   }
 };
+
+
+// // POST - opret
+// export const opretEvent = async (eventData) => {
+//   try {
+//     // gør data og billede klar til at blive sendt som formdata
+//     const formdata = new FormData();
+//     formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
+
+//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
+
+// // POST - opret
+// export const opretEvent = async (eventData, eventBillede) => {
+//   try {
+//     // gør data og billede klar til at blive sendt som formdata
+//     const formdata = new FormData();
+//     formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
+//     formdata.append('billede', JSON.stringify(eventBillede));
+
+//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
 
 // GET - søg
 export const eventSoegSimple = async (soegeord) => {

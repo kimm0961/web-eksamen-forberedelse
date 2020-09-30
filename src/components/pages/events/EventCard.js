@@ -10,14 +10,21 @@ const EventCard = () => {
   //* useEffect */
 
   useEffect(() => {
-    hentAlleEvents().then(setOevelser);
+    // // Min kode
+    // hentAlleEvents().then(setOevelser);
+
+    // Mariannes kode
+    hentAlleEvents().then(response => {
+      if(response !== "error") setOevelser(response)
+    });
+
   }, []);
 
   //* Metode 1 - map */
 
-  let eventList = "";
+  let eventList = <h2>Loader...</h2>;
 
-  if (oevelser.length > 0) {
+  if (oevelser && oevelser.length) {
     eventList = oevelser.map((e) => {
       // let d = new Date(e.dato);
       // let n = d.toLocaleDateString();

@@ -18,7 +18,7 @@ function Admin() {
 
   //* Map */
 
-  let AdminList = "";
+  let AdminList = <h2>Loader...</h2>;
 
   if (Admin.length > 0) {
     AdminList = Admin.map(e => {

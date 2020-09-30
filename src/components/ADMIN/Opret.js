@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageUploader from "react-images-upload";
-import { hentAlleRegioner } from "../API/RegionAPI";
+// import { hentAlleRegioner } from "../API/RegionAPI";
 import { useHistory, Link } from "react-router-dom";
 import { opretEvent } from "../API/EventAPI";
 
@@ -9,45 +9,46 @@ function Opret() {
   //* State */
   const [eventData, setEventData] = useState({});
   const [eventBillede, setEventBillede] = useState();
-  const [regioner, setRegioner] = useState({});
+  // const [regioner, setRegioner] = useState({});
 
-  //* History */
-  const history = useHistory();
+  // //* History */
+  // const history = useHistory();
 
-  //* Region */
-  useEffect(() => {
-    hentAlleRegioner().then(kat => {
-      setRegioner(kat);
-      setEventData({ kategori: kat[0]._id });
-    });
-  }, []);
+  // //* Region */
+  // useEffect(() => {
+  //   hentAlleRegioner().then(kat => {
+  //     setRegioner(kat);
+  //     setEventData({ kategori: kat[0]._id });
+  //   });
+  // }, []);
 
   //* Submit *
   const handleSubmit = e => {
     e.preventDefault();
 
     (async () => {
-      setEventData(await opretEvent(eventData, eventBillede));
+      setEventData(await opretEvent(eventData));
+      // setEventData(await opretEvent(eventData, eventBillede));
       // redirect
-      history.push("/admin");
+      // history.push("/admin");
     })();
   };
 
     //* Metode 1 - map */
 
-    let regionList = "";
+    // let regionList = <h2>Loader...</h2>;
 
-    if (regioner.length > 0) {
-      regionList = regioner.map(r => {
-        return (
-          <option key={r._id} value={r._id}>
-            {r.regionnavn}
-          </option>
-        );
-      });
-    } else {
-      return <div>Ingen regioner endnu.</div>;
-    }
+    // if (regioner.length > 0) {
+    //   regionList = regioner.map(r => {
+    //     return (
+    //       <option key={r._id} value={r._id}>
+    //         {r.regionnavn}
+    //       </option>
+    //     );
+    //   });
+    // } else {
+    //   return <div>Ingen regioner endnu.</div>;
+    // }
 
   
 
@@ -66,7 +67,7 @@ function Opret() {
          onChange={(e) => setEventData({ ...eventData, titel: e.target.value})}
           value={eventData.titel || ""}
         />
-        <select
+        {/* <select
             className="custom-select bg-light"
             onChange={e =>
               setEventData({ ...eventData, region: e.target.value })
@@ -74,8 +75,8 @@ function Opret() {
             value={eventData.region || ""}
           >
             {regionList}
-          </select>
-        <label htmlFor="dato" className="font-weight-bold">Dato</label>
+          </select> */}
+        {/* <label htmlFor="dato" className="font-weight-bold">Dato</label>
         <input
           id="dato" type="date"
           className="form-control mb-3 bg-info text-white"
@@ -114,13 +115,11 @@ function Opret() {
           className="form-control mb-3 bg-info text-white"
          required name="pladser" onChange={(e) => setEventData({ ...eventData, antalpladser: e.target.value})}
           value={eventData.antalpladser || ""}
-        />
+        /> */}
         <ImageUploader
             withIcon={true}
             buttonText="Vælg et billede"
-            onChange={billede => {
-              setEventBillede(billede[0]);
-            }} // Send kun 1 fil, ikke et array med 1 fil
+            onChange={(billede) => {setEventData({ ...eventData, billede: billede[0]})}} // Send kun 1 fil, ikke et array med 1 fil
             imgExtension={[".jpg", ".gif", ".png"]}
             maxFileSize={5242880}
             withPreview={true}

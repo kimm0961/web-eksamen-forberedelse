@@ -18,7 +18,7 @@ function Event() {
 
   //* Noget */
 
-  let eventen = "";
+  let eventen = <h2>Loader...</h2>;
 
   if (event !== undefined) {
     eventen = (
