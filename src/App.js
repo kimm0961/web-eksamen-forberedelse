@@ -11,7 +11,7 @@ import Navbar from "./components/layout/header/Navbar";
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
 import Events from "./components/pages/events/EventsPage";
-import EventFilter from "./components/pages/events/EventFilter";
+import EventFilter from "./components/pages/events/EventsPageFilter";
 import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOsPage";
 import Kontakt from "./components/pages/kontakt/KontaktPage";
