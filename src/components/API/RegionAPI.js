@@ -2,7 +2,6 @@ import axios from "axios";
 
 const regionAPI = {
   baseUrl: "http://localhost:5021/region",
-  apiKey: ""
 };
 
 // GET - alle 

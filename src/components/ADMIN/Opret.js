@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import React, { useState, useEffect } from "react";
 import ImageUploader from "react-images-upload";
 // import { hentAlleRegioner } from "../API/RegionAPI";
-import { useHistory, Link } from "react-router-dom";
+// import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { opretEvent } from "../API/EventAPI";
 
 
 function Opret() {
   //* State */
   const [eventData, setEventData] = useState({});
-  const [eventBillede, setEventBillede] = useState();
+  // const [eventBillede, setEventBillede] = useState();
   // const [regioner, setRegioner] = useState({});
 
   // //* History */

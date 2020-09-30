@@ -31,19 +31,19 @@ for (i = 0; i < res.data.length; i++) {
 
 // GET - alle
 export const hentAlleEvents = async () => {
-  // // Min kode
-  // try {
-  //   let res = await axios.get(eventAPI.baseUrl);
-  //   OmskrivDato(res);
-  //   // console.log(res.data);
-  //   return res.data;
-  // } catch (error) {
-  //   console.log("Fejl:", error);
-  // }
+  // Min kode
+  try {
+    let res = await axios.get(eventAPI.baseUrl);
+    OmskrivDato(res);
+    // console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log("Fejl:", error);
+  }
 
-  // Mariannes kode
-  let response = await axios.get(eventAPI.baseUrl).then(response => {return response.data}).catch(error => {return "error"})
-  return response;
+  // // Mariannes kode
+  // let response = await axios.get(eventAPI.baseUrl).then(response => {return response.data}).catch(error => {return "error"})
+  // return response;
 };
 
 // GET - ud fra id
@@ -57,6 +57,8 @@ export const hentEvent = async (eventData_id) => {
     console.log("Fejl:", error);
   }
 };
+
+
 
 // // POST - opret
 // export const opretEvent = async (eventData) => {

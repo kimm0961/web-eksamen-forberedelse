@@ -81,6 +81,11 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/events-filter">
+                Events filter
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/om-os">
                 Om Os
               </NavLink>

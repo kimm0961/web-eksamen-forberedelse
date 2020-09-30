@@ -10,13 +10,13 @@ const EventCard = () => {
   //* useEffect */
 
   useEffect(() => {
-    // // Min kode
-    // hentAlleEvents().then(setOevelser);
+    // Min kode
+    hentAlleEvents().then(setOevelser);
 
-    // Mariannes kode
-    hentAlleEvents().then(response => {
-      if(response !== "error") setOevelser(response)
-    });
+    // // Mariannes kode
+    // hentAlleEvents().then(response => {
+    //   if(response !== "error") setOevelser(response)
+    // });
 
   }, []);
 
