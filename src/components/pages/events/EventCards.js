@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { hentAlleEvents } from "../../API/EventAPI";
 
-const EventCard = () => {
+const EventCards = () => {
   //* State */
 
-  const [oevelser, setOevelser] = useState([]);
+  const [events, setEvents] = useState([]);
 
   //* useEffect */
 
   useEffect(() => {
     // Min kode
-    hentAlleEvents().then(setOevelser);
+    hentAlleEvents().then(setEvents);
 
     // // Mariannes kode
     // hentAlleEvents().then(response => {
-    //   if(response !== "error") setOevelser(response)
+    //   if(response !== "error") setEvents(response)
     // });
 
   }, []);
@@ -24,11 +24,8 @@ const EventCard = () => {
 
   let eventList = <h2>Loader...</h2>;
 
-  if (oevelser && oevelser.length) {
-    eventList = oevelser.map((e) => {
-      // let d = new Date(e.dato);
-      // let n = d.toLocaleDateString();
-      // console.log(n);
+  if (events && events.length) {
+    eventList = events.map((e) => {
       return (
         <div className="col-md-6 col-lg-4" key={e._id}>
           <div className="card mb-4 shadow">
@@ -60,4 +57,4 @@ const EventCard = () => {
   return <div className="card-deck row">{eventList}</div>;
 };
 
-export default EventCard;
+export default EventCards;

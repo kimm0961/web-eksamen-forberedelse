@@ -1,6 +1,6 @@
 import React from 'react'
 // Components
-import Cards from './EventCard'
+import Cards from './EventCards'
 
 function EventsPage() {
     return (
