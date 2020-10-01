@@ -105,7 +105,7 @@ function Navbar() {
               onChange={(e) => {
                 setSoeg(e.target.value);
               }}
-              aria-label="Søg"
+              aria-label="Søg efter en event"
             />
             <button className="btn btn-dark" type="submit">
               Søg

@@ -41,7 +41,7 @@ function Login() {
           <label htmlFor="text">Brugernavn</label>
           <input
             type="text"
-            name="text"
+            name="brugernavn"
             placeholder="Brugernavn"
             required
             className="form-control"
@@ -68,7 +68,7 @@ function Login() {
             autoComplete="on"
           />
         </div>
-        <button className="btn btn-success" type="submit">
+        <button className="btn btn-success" type="submit" aria-label="Bruger login knap">
           Indsend
         </button>
       </form>

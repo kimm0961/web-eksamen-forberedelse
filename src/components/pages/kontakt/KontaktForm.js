@@ -56,6 +56,7 @@ function KontaktForm() {
         <label htmlFor="email">Din Email</label>
         <input
           type="email"
+          name="emailadresse"
           className="form-control"
           id="email"
           value={kontaktForm.emailadresse || ""}
@@ -67,6 +68,7 @@ function KontaktForm() {
         <input
           type="text"
           className="form-control"
+          name="emne"
           id="emne"
           value={kontaktForm.emne || ""}
           onChange={handleEmne}
@@ -77,6 +79,7 @@ function KontaktForm() {
         <textarea
           className="form-control"
           id="besked"
+          name="besked"
           rows="3"
           value={kontaktForm.besked || ""}
           onChange={handleBesked}

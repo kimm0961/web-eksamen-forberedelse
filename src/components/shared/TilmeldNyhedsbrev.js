@@ -30,6 +30,7 @@ function TilmeldNyhedsbrev() {
       <input
         className="form-control"
         type="email"
+        name="email"
         id="inputEmail"
         placeholder="Din email"
         value={nyhedsbrev.email || ""}

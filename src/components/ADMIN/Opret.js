@@ -10,7 +10,7 @@ import { opretEvent } from "../API/EventAPI";
 function Opret() {
   //* State */
   const [eventData, setEventData] = useState({});
-  // const [eventBillede, setEventBillede] = useState();
+  const [eventBillede, setEventBillede] = useState({});
   // const [regioner, setRegioner] = useState({});
 
   // //* History */
@@ -29,8 +29,10 @@ function Opret() {
     e.preventDefault();
 
     (async () => {
-      setEventData(await opretEvent(eventData));
-      // setEventData(await opretEvent(eventData, eventBillede));
+      // setEventData(await opretEvent(eventData));
+      // console.log("opret", eventData)
+      setEventData(await opretEvent(eventData, eventBillede));
+      console.log(eventData, eventBillede);
       // redirect
       // history.push("/admin");
     })();
@@ -121,7 +123,7 @@ function Opret() {
         <ImageUploader
             withIcon={true}
             buttonText="Vælg et billede"
-            onChange={(billede) => {setEventData({ ...eventData, billede: billede[0]})}} // Send kun 1 fil, ikke et array med 1 fil
+            onChange={(billede) => {setEventBillede(billede[0])}} // Send kun 1 fil, ikke et array med 1 fil
             imgExtension={[".jpg", ".gif", ".png"]}
             maxFileSize={5242880}
             withPreview={true}

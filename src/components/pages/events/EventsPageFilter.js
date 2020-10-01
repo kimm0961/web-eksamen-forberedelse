@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { hentAlleEvents } from "../../API/EventAPI";
 import { hentAlleRegioner } from "../../API/RegionAPI";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const EventsPageFilter = () => {
   //* State */
@@ -25,13 +26,13 @@ const EventsPageFilter = () => {
 
   if (regioner && regioner.length) {
     regionList = regioner.map((r) => (
-      <option value={r._id}>{r.regionnavn}</option>
+      <option value={r._id} name="regionnavn">{r.regionnavn}</option>
     ));
   }
 
   //* Map events */
 
-  let eventList = <h2>Loader...</h2>;
+  let eventList = <ClipLoader size={150} color={"#123abc"}/>;
 
   if (events && events.length) {
     eventList = events
