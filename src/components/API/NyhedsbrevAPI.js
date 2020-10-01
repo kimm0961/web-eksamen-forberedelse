@@ -14,3 +14,20 @@ export const tilmeldNyhedsbrev = async (nyhedsbrev) => {
     console.log("Fejl:", error);
   }
 };
+
+// POST - Tilmeld
+export const tilmeldNyhedsbrev2 = async (nyhedsbrev) => {
+
+  let formdata = new FormData(nyhedsbrev);
+
+  let response = axios
+    .post(nyhedsbrevAPI.baseUrl, formdata)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      return "error";
+    });
+
+  return response;
+};
