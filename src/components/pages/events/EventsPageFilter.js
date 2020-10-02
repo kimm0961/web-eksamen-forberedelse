@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+// API 
 import { hentAlleEvents } from "../../API/EventAPI";
 import { hentAlleRegioner } from "../../API/RegionAPI";
-import ClipLoader from "react-spinners/ClipLoader";
+
 
 const EventsPageFilter = () => {
   //* State */

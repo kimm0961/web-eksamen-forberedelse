@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// API
 import { sendBesked } from "../../API/KontaktAPI";
 
 function KontaktForm() {

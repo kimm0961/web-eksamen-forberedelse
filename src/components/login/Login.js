@@ -1,17 +1,18 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { BrugerLogin, BrugerLoggedin } from "../API/AuthAPI";
 import { AuthDataContext } from "../context/AuthDataContext";
+// API
+import { BrugerLogin, BrugerLoggedin } from "../API/AuthAPI";
 
 function Login() {
-  // State
+  //* State */
   const [brugerInfo, setBrugerInfo] = useState({});
 
   const { onLogin } = useContext(AuthDataContext);
 
   const history = useHistory();
 
-  // Submit
+  //* Submit */
   const handleSubmit = (e) => {
     e.preventDefault();
 

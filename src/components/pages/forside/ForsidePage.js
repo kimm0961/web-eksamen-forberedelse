@@ -1,4 +1,5 @@
 import React from 'react'
+// Components
 import TilmeldNyhedsbrev from '../../shared/TilmeldNyhedsbrev'
 import TilmeldNyhedsbrev2 from '../../shared/TilmeldNyhedsbrev2'
 
