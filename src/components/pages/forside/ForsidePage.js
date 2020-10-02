@@ -6,8 +6,10 @@ function ForsidePage() {
     return (
         <div>
             <h1>Forside</h1>
+            <h2>Nyhedsbrevtilmelding med state</h2>
             <TilmeldNyhedsbrev />
             <br/>
+            <h2>Nyhedsbrevtilmelding med formdata</h2>
             <TilmeldNyhedsbrev2 />
         </div>
     )

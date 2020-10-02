@@ -1,7 +1,7 @@
 import React from "react";
 import { sendBesked2 } from "../../API/KontaktAPI";
 
-function KontaktFormData() {
+function KontaktForm2() {
   //* Submit */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,7 +10,6 @@ function KontaktFormData() {
       if (response !== "error") {
         console.log(response);
         alert("Din bedsked er sendt");
-        // e.target.
       }
     });
   };
@@ -43,4 +42,4 @@ function KontaktFormData() {
   );
 }
 
-export default KontaktFormData;
+export default KontaktForm2;

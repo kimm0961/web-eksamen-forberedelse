@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { tilmeldNyhedsbrev2 } from "../API/NyhedsbrevAPI";
 
 function TilmeldNyhedsbrev2() {

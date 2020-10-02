@@ -15,7 +15,7 @@ export const tilmeldNyhedsbrev = async (nyhedsbrev) => {
   }
 };
 
-// POST - Tilmeld
+// POST - Tilmeld med formdata
 export const tilmeldNyhedsbrev2 = async (nyhedsbrev) => {
 
   let formdata = new FormData(nyhedsbrev);

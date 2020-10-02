@@ -15,7 +15,7 @@ export const sendBesked = async (kontaktForm) => {
   }
 };
 
-// POST - send besked
+// POST - send besked med formdata
 export const sendBesked2 = (besked) => {
   let formdata = new FormData(besked);
 

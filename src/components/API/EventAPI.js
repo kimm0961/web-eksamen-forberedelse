@@ -106,6 +106,8 @@ export const hentEvent = async (eventData_id) => {
 // POST - opret
 export const opretEvent = async (eventData, eventBillede) => {
   try {
+
+    // let formdata = Object.fromEntries(new FormData(eventData));
     // gør data og billede klar til at blive sendt som formdata
     const formdata = new FormData();
     formdata.append('event', (eventData)) // Lav json til string og send med
