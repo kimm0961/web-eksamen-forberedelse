@@ -20,9 +20,9 @@ import EventSoeg from "./components/pages/events/EventSoeg";
 // Admin
 import Login from "./components/login/Login";
 import Admin from "./components/ADMIN/Admin";
+import Opret from "./components/ADMIN/Opret";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
-import Opret from "./components/ADMIN/Opret";
 
 
 const PrivateRoute = ({ component, ...options }) => {
