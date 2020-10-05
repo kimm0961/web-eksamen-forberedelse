@@ -12,17 +12,21 @@ import Navbar from "./components/layout/header/Navbar";
 import Forside from "./components/pages/forside/ForsidePage";
 import Events from "./components/pages/events/EventsPage";
 import EventFilter from "./components/pages/events/EventsPageFilter";
+import EventsPagePagination from "./components/pages/events/pagination/EventsPagePagination";
 import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOsPage";
 import Kontakt from "./components/pages/kontakt/KontaktPage";
 import EventSoeg from "./components/pages/events/EventSoeg";
 
-// Admin
+// ADMIN
 import Login from "./components/login/Login";
 import Admin from "./components/ADMIN/Admin";
 import Opret from "./components/ADMIN/Opret";
+// import Ret from "./components/ADMIN/Ret";
+// import Slet from "./components/ADMIN/Slet";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
+
 
 
 const PrivateRoute = ({ component, ...options }) => {
@@ -48,13 +52,14 @@ function App() {
               <PrivateRoute exact path="/admin" component={Admin} />
               <Route path="/events" component={Events} />
               <Route path="/events-filter" component={EventFilter} />
+              <Route path="/events-pagination" component={EventsPagePagination} />
               <Route path="/om-os" component={OmOs} />
               <Route path="/kontakt" component={Kontakt} />
               <Route exact path="/:event_id" component={Event} />
               <Route exact path="/soeg/:soegeord" component={EventSoeg} />
               <PrivateRoute excat path="/admin/opret" component={Opret} />
-          {/* <PrivateRoute exact path="/ret/:gaadeData_id" component={GaadeRet} />
-          <PrivateRoute exact path="/slet/:gaadeData_id" component={GaadeSlet} /> */}
+              {/* <PrivateRoute path="/ret/:event_id" component={Ret} />
+              <PrivateRoute exact path="/slet/:event_id" component={Slet} /> */}
             </Switch>
           </main>
           <Footer />

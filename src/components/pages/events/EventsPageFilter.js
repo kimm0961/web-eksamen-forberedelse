@@ -24,11 +24,11 @@ const EventsPageFilter = () => {
 
   //* Map regioner */
 
-  let regionList = <h2>Loader...</h2>;
+  let regionList = <option>Loading...</option>;
 
   if (regioner && regioner.length) {
     regionList = regioner.map((r) => (
-      <option value={r._id} name="regionnavn">{r.regionnavn}</option>
+      <option key={r._id} value={r._id} name="regionnavn">{r.regionnavn}</option>
     ));
   }
 

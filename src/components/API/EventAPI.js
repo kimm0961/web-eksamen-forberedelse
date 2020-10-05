@@ -103,6 +103,24 @@ export const hentEvent = async (eventData_id) => {
 //   }
 // };
 
+// // POST - opret
+// export const opretEvent = async (eventData, eventBillede) => {
+//   try {
+
+//     // let formdata = Object.fromEntries(new FormData(eventData));
+//     // gør data og billede klar til at blive sendt som formdata
+//     const formdata = new FormData();
+//     formdata.append('event', (eventData)) // Lav json til string og send med
+//     formdata.append('billede', (eventBillede));
+//     console.log("api", formdata)
+//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     console.log("api", res)
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
+
 // POST - opret
 export const opretEvent = async (eventData, eventBillede) => {
   try {
@@ -132,3 +150,28 @@ export const eventSoegSimple = async (soegeord) => {
     console.log("Fejl:", error);
   }
 };
+
+
+// // PATCH - ret
+// export const retOevelse = async (oevelse_id, oevelseData, oevelseBillede) => {
+//   try {
+//      const formdata = new FormData();
+//      formdata.append('oevelse', JSON.stringify(oevelseData)) // Lav json til string og send med
+//      formdata.append('billede', oevelseBillede);
+
+//     let res = await axios.patch(OevelseAPI.baseUrl + "/admin/" + oevelse_id, formdata);
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
+
+// // DELETE - slet
+// export const sletOevelse = async oevelse_id => {
+//   try {
+//     let res = await axios.delete(OevelseAPI.baseUrl + "/admin/" + oevelse_id);
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
