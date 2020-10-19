@@ -6,7 +6,8 @@ import AuthDataProvider from "./components/context/AuthDataContext";
 
 // Header & Footer
 import Footer from "./components/layout/footer/Footer";
-import Navbar from "./components/layout/header/Navbar";
+// import Navbar from "./components/layout/header/Navbar";
+import Navbar from "./components/layout/header/Navbar2";
 
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
