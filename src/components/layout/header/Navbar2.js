@@ -5,12 +5,16 @@ import { AuthDataContext } from "../../context/AuthDataContext";
 import { BrugerLogout } from "../../API/AuthAPI";
 
 function Navbar2() {
+  // History
   let history = useHistory();
+
+  // handleSoeg
   const handleSoeg = (e) => {
     e.preventDefault(); //ungå at component reloader/re-mounter
     history.push("/soeg/" + e.target.soeg.value);
   };
 
+// LoggedIn Logout
   const { loggedIn, onLogout } = useContext(AuthDataContext);
   const [error, setError] = useState(null);
 
@@ -53,6 +57,7 @@ function Navbar2() {
     );
   }
 
+  // Navbar
   return (
     <>
     <nav className="Navbar navbar navbar-expand-md navbar-dark bg-primary">
