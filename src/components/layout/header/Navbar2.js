@@ -84,7 +84,7 @@ function Navbar2() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/events">
+              <NavLink className="nav-link" to="/eventt">
                 Events
               </NavLink>
             </li>
@@ -96,6 +96,11 @@ function Navbar2() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/events-pagination">
                 Events pagination
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sponsorer">
+                Sponsorer
               </NavLink>
             </li>
             <li className="nav-item">

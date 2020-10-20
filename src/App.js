@@ -16,8 +16,11 @@ import EventFilter from "./components/pages/events/EventsPageFilter";
 import EventsPagePagination from "./components/pages/events/pagination/EventsPagePagination";
 import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOsPage";
+import SponsorerPage from "./components/pages/sponsorer/SponsorerPage";
 import Kontakt from "./components/pages/kontakt/KontaktPage";
 import EventSoeg from "./components/pages/events/EventSoeg";
+// Not Found
+import NotFound from "./components/pages/error/NotFound";
 
 // ADMIN
 import Login from "./components/login/Login";
@@ -27,6 +30,7 @@ import Opret from "./components/ADMIN/Opret";
 // import Slet from "./components/ADMIN/Slet";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
+
 
 
 
@@ -51,16 +55,18 @@ function App() {
               <Route exact path="/" component={Forside} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/admin" component={Admin} />
-              <Route path="/events" component={Events} />
-              <Route path="/events-filter" component={EventFilter} />
-              <Route path="/events-pagination" component={EventsPagePagination} />
-              <Route path="/om-os" component={OmOs} />
-              <Route path="/kontakt" component={Kontakt} />
+              <Route exact path="/events" component={Events} />
+              <Route exact path="/events-filter" component={EventFilter} />
+              <Route exact path="/events-pagination" component={EventsPagePagination} />
+              <Route exact path="/om-os" component={OmOs} />
+              <Route exact path="/sponsorer" component={SponsorerPage} />
+              <Route exact path="/kontakt" component={Kontakt} />
               <Route exact path="/:event_id" component={Event} />
               <Route exact path="/soeg/:soegeord" component={EventSoeg} />
               <PrivateRoute excat path="/admin/opret" component={Opret} />
               {/* <PrivateRoute path="/ret/:event_id" component={Ret} />
               <PrivateRoute exact path="/slet/:event_id" component={Slet} /> */}
+              <Route component={NotFound} />
             </Switch>
           </main>
           <Footer />
