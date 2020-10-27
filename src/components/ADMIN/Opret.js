@@ -1,145 +1,166 @@
-import React, { useState } from "react";
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ImageUploader from "react-images-upload";
-// import { hentAlleRegioner } from "../API/RegionAPI";
-// import { useHistory, Link } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// API
 import { opretEvent } from "../API/EventAPI";
-
+import { hentAlleRegioner } from "../API/RegionAPI";
+// CK editor
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+const editorConfiguration = {
+  toolbar: [
+    "bold",
+    "italic",
+    "link",
+    "bulletedList",
+    "numberedList",
+    "blockQuote",
+  ],
+};
 
 function Opret() {
   //* State */
-  const [eventData, setEventData] = useState({});
-  const [eventBillede, setEventBillede] = useState({});
-  // const [regioner, setRegioner] = useState({});
+  const [regioner, setRegioner] = useState({});
+
+  const [beskrivelse, setBeskrivelse] = useState();
 
   // //* History */
-  // const history = useHistory();
+  const history = useHistory();
 
-  // //* Region */
-  // useEffect(() => {
-  //   hentAlleRegioner().then(kat => {
-  //     setRegioner(kat);
-  //     setEventData({ kategori: kat[0]._id });
-  //   });
-  // }, []);
+  //* Region */
+  useEffect(() => {
+    hentAlleRegioner().then((response) => {
+      if (response !== "error") setRegioner(response);
+    });
+  }, []);
+
+  // Liste med alle regioner
+  let regionliste = "";
+  if (regioner && regioner.length) {
+    regionliste = regioner.map((r) => (
+      <option value={r._id} key={r._id}>
+        {r.regionnavn}
+      </option>
+    ));
+  }
 
   //* Submit *
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    (async () => {
-      // setEventData(await opretEvent(eventData));
-      // console.log("opret", eventData)
-      setEventData(await opretEvent(eventData, eventBillede));
-      console.log(eventData, eventBillede);
-      // redirect
-      // history.push("/admin");
-    })();
+    opretEvent(e.target).then((response) => {
+      console.log(response);
+    });
+
+    history.push("/admin");
   };
-
-    //* Metode 1 - map */
-
-    // let regionList = <h2>Loader...</h2>;
-
-    // if (regioner.length > 0) {
-    //   regionList = regioner.map(r => {
-    //     return (
-    //       <option key={r._id} value={r._id}>
-    //         {r.regionnavn}
-    //       </option>
-    //     );
-    //   });
-    // } else {
-    //   return <div>Ingen regioner endnu.</div>;
-    // }
-
-  
 
   //* Udskriv */
 
   return (
     <div className="container">
       <h1 className="text-center m-5">Opret en ny event</h1>
-      <div className="container" style={{maxWidth: '40rem'}}>
-      <form className="text-left">
-        <label htmlFor="titel" className="font-weight-bold">Titel:</label>
-        <input
-          id="titel" type="text"
-          className="form-control mb-3 bg-info text-white"
-         required name="titel"
-         onChange={(e) => setEventData({ ...eventData, titel: e.target.value})}
-          value={eventData.titel || ""}
-        />
-        {/* <select
-            className="custom-select bg-light"
-            onChange={e =>
-              setEventData({ ...eventData, region: e.target.value })
-            }
-            value={eventData.region || ""}
-          >
-            {regionList}
-          </select> */}
-        {/* <label htmlFor="dato" className="font-weight-bold">Dato</label>
-        <input
-          id="dato" type="date"
-          className="form-control mb-3 bg-info text-white"
-         required name="dato" onChange={(e) => setEventData({ ...eventData, dato: e.target.value})}
-          value={eventData.dato || ""}
-        />
-        <label htmlFor="beskrivelse" className="font-weight-bold">Beskrivelse</label>
-        <textarea
-            id="beskrivelse"
-            className="form-control mb-3 bg-light"
-            rows="3"
-            required
-            name="beskrivelse"
-            onChange={e =>
-              setEventData({ ...eventData, beskrivelse: e.target.value })
-            }
-            value={eventData.beskrivelse || ""}
-          ></textarea>
-        <label htmlFor="distance" className="font-weight-bold">distance</label>
-        <input
-          id="distance" type="text"
-          className="form-control mb-3 bg-info text-white"
-         required name="distance" onChange={(e) => setEventData({ ...eventData, distance: e.target.value})}
-          value={eventData.distance || ""}
-        />
-        <label htmlFor="pris" className="font-weight-bold">Pris</label>
-        <input
-          id="pris" type="text"
-          className="form-control mb-3 bg-info text-white"
-         required name="pris" onChange={(e) => setEventData({ ...eventData, pris: e.target.value})}
-          value={eventData.pris || ""}
-        />
-        <label htmlFor="pladser" className="font-weight-bold">Antal pladser</label>
-        <input
-          id="pladser" type="text"
-          className="form-control mb-3 bg-info text-white"
-         required name="pladser" onChange={(e) => setEventData({ ...eventData, antalpladser: e.target.value})}
-          value={eventData.antalpladser || ""}
-        /> */}
-        <ImageUploader
-        name="billede"
-            withIcon={true}
-            buttonText="Vælg et billede"
-            onChange={(billede) => {setEventBillede(billede[0])}} // Send kun 1 fil, ikke et array med 1 fil
-            imgExtension={[".jpg", ".gif", ".png"]}
-            maxFileSize={5242880}
-            withPreview={true}
+      <div className="container" style={{ maxWidth: "40rem" }}>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Titel
+            <input name="titel" id="inpTitel" type="text" placeholder="Titel" />
+          </label>
+          <br />
+          <br />
+          <label>
+            Dato og tid
+            <input
+              name="dato"
+              id="inpDato"
+              type="text"
+              placeholder="Vælg dato"
+            />
+          </label>
+          <br />
+          <br />
+          <label>
+            <textarea
+              name="beskrivelse"
+              defaultValue={beskrivelse}
+              id="txtBeskrivelse"
+              style={{ display: "none" }}
+              placeholder="Beskrivelse"
+            ></textarea>
+          </label>
+          <CKEditor
+            editor={ClassicEditor}
+            data=""
+            config={editorConfiguration}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              setBeskrivelse(data);
+            }}
           />
-      </form>
-      <Link className="btn btn-success mr-3" role="button" to="/admin">
-        Fortryd
-      </Link>
-      <Link
-        className="btn btn-primary"
-        role="button"
-        onClick={handleSubmit} to="/admin"
-      >
-        Gem
-      </Link>
+          <br />
+          <br />
+          <label>
+            Distance
+            <input
+              name="distance"
+              type="number"
+              min="1"
+              max="100000"
+              placeholder="Distance i meter"
+            />
+          </label>
+          <br />
+          <br />
+          <label>
+            Pris i kr.
+            <input
+              name="pris"
+              type="number"
+              min="0"
+              max="10000"
+              placeholder="Pris i kr"
+            />
+          </label>
+          <br />
+          <br />
+          <label>
+            Antal pladser
+            <input
+              name="antalpladser"
+              type="number"
+              min="1"
+              max="10000"
+              placeholder="Antal pladser"
+            />
+          </label>
+          <br />
+          <br />
+          <select name="region" defaultValue="DEFAULT" id="regionselect">
+            <option value="DEFAULT" disabled>
+              Vælg en region ....
+            </option>
+            {regionliste}
+          </select>
+          <br />
+          <br />
+
+          <div>
+            <ImageUploader
+              name="billede"
+              withIcon={true}
+              buttonText="Vælg et billede"
+              withLabel={true}
+              imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
+              singleImage={true}
+              withPreview={true}
+              required={true}
+            />
+          </div>
+          <br />
+          <br />
+          <button type="button">Fortryd</button>
+          <button type="submit">Gem Event</button>
+        </form>
       </div>
     </div>
   );

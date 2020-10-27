@@ -61,83 +61,22 @@ export const hentEvent = async (eventData_id) => {
 
 
 // POST - opret
-export const opretEvent = async (eventData, eventBillede) => {
-  try {
-    // gør data og billede klar til at blive sendt som formdata
-    const formdata = new FormData();
-    formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
-    formdata.append('billede', eventBillede);
+export const opretEvent = async (eventData) => {
+  let formdata = new FormData(eventData);
 
-    let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
+  let response = axios
+    .post(eventAPI.baseUrl + "/admin", formdata, { withCredentials: true })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return "error";
+    });
+
+  return response;
 };
 
-// // POST - opret en
-// export const opretEvent = async (eventData) => {
-//   try {
-//     let res = await axios.post(eventAPI.baseUrl + "/admin", eventData, {
-//       withCredentials: true,
-//     });
-//     console.log("api opret", res.data);
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
 
-
-// // POST - opret
-// export const opretEvent = async (eventData) => {
-//   try {
-//     // gør data og billede klar til at blive sendt som formdata
-//     const formdata = new FormData();
-//     formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
-
-//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
-
-// // POST - opret
-// export const opretEvent = async (eventData, eventBillede) => {
-//   try {
-
-//     // let formdata = Object.fromEntries(new FormData(eventData));
-//     // gør data og billede klar til at blive sendt som formdata
-//     const formdata = new FormData();
-//     formdata.append('event', (eventData)) // Lav json til string og send med
-//     formdata.append('billede', (eventBillede));
-//     console.log("api", formdata)
-//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-//     console.log("api", res)
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
-
-// // POST - opret
-// export const opretEvent = async (eventData, eventBillede) => {
-//   try {
-
-//     // let formdata = Object.fromEntries(new FormData(eventData));
-//     // gør data og billede klar til at blive sendt som formdata
-//     const formdata = new FormData();
-//     formdata.append('event', (eventData)) // Lav json til string og send med
-//     formdata.append('billede', (eventBillede));
-//     console.log("api", formdata)
-//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-//     console.log("api", res)
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
 
 // GET - søg
 export const eventSoegSimple = async (soegeord) => {
