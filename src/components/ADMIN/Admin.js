@@ -32,7 +32,7 @@ function Admin() {
           <td>{e.pris}</td>
           <td>{e.antalpladser}</td>
           <td>
-            <Link to={"/ret/" + e._id}>
+            <Link to={"/admin/ret/" + e._id}>
               <button type="button" className="btn btn-primary">
                 <span role="img" aria-label="ret">
                   <MdEdit />

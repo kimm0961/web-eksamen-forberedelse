@@ -27,8 +27,8 @@ import NotFound from "./components/pages/error/NotFound";
 import Login from "./components/login/Login";
 import Admin from "./components/ADMIN/Admin";
 import Opret from "./components/ADMIN/Opret";
-// import Ret from "./components/ADMIN/Ret";
-// import Slet from "./components/ADMIN/Slet";
+import Ret from "./components/ADMIN/Ret";
+import Slet from "./components/ADMIN/Slet";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
 
@@ -67,8 +67,8 @@ function App() {
               <Route exact path="/:event_id" component={Event} />
               <Route exact path="/soeg/:soegeord" component={EventSoeg} />
               <PrivateRoute excat path="/admin/opret" component={Opret} />
-              {/* <PrivateRoute path="/ret/:event_id" component={Ret} />
-              <PrivateRoute exact path="/slet/:event_id" component={Slet} /> */}
+              <PrivateRoute path="/admin/ret/:event_id" component={Ret} />
+              <PrivateRoute exact path="/slet/:event_id" component={Slet} />
               <Route component={NotFound} />
             </Switch>
           </main>
