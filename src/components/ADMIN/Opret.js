@@ -121,6 +121,7 @@ function Opret() {
           value={eventData.antalpladser || ""}
         /> */}
         <ImageUploader
+        name="billede"
             withIcon={true}
             buttonText="Vælg et billede"
             onChange={(billede) => {setEventBillede(billede[0])}} // Send kun 1 fil, ikke et array med 1 fil

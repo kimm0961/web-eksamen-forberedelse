@@ -14,6 +14,7 @@ import Forside from "./components/pages/forside/ForsidePage";
 import Events from "./components/pages/events/EventsPage";
 import EventFilter from "./components/pages/events/EventsPageFilter";
 import EventsPagePagination from "./components/pages/events/pagination/EventsPagePagination";
+import Slider from "./components/shared/Slider";
 import Event from "./components/pages/events/Event";
 import OmOs from "./components/pages/om-os/OmOsPage";
 import SponsorerPage from "./components/pages/sponsorer/SponsorerPage";
@@ -30,6 +31,7 @@ import Opret from "./components/ADMIN/Opret";
 // import Slet from "./components/ADMIN/Slet";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
+
 
 
 
@@ -58,6 +60,7 @@ function App() {
               <Route exact path="/events" component={Events} />
               <Route exact path="/events-filter" component={EventFilter} />
               <Route exact path="/events-pagination" component={EventsPagePagination} />
+              <Route exact path="/slider" component={Slider} />
               <Route exact path="/om-os" component={OmOs} />
               <Route exact path="/sponsorer" component={SponsorerPage} />
               <Route exact path="/kontakt" component={Kontakt} />

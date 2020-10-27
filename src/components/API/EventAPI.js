@@ -60,20 +60,20 @@ export const hentEvent = async (eventData_id) => {
 
 
 
-// // POST - opret
-// export const opretEvent = async (eventData) => {
-//   try {
-//     // gør data og billede klar til at blive sendt som formdata
-//     const formdata = new FormData();
-//     formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
-//     formdata.append('billede', eventBillede);
+// POST - opret
+export const opretEvent = async (eventData, eventBillede) => {
+  try {
+    // gør data og billede klar til at blive sendt som formdata
+    const formdata = new FormData();
+    formdata.append('event', JSON.stringify(eventData)) // Lav json til string og send med
+    formdata.append('billede', eventBillede);
 
-//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
+    let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+    return res.data;
+  } catch (error) {
+    console.log("Fejl:", error);
+  }
+};
 
 // // POST - opret en
 // export const opretEvent = async (eventData) => {
@@ -121,23 +121,23 @@ export const hentEvent = async (eventData_id) => {
 //   }
 // };
 
-// POST - opret
-export const opretEvent = async (eventData, eventBillede) => {
-  try {
+// // POST - opret
+// export const opretEvent = async (eventData, eventBillede) => {
+//   try {
 
-    // let formdata = Object.fromEntries(new FormData(eventData));
-    // gør data og billede klar til at blive sendt som formdata
-    const formdata = new FormData();
-    formdata.append('event', (eventData)) // Lav json til string og send med
-    formdata.append('billede', (eventBillede));
-    console.log("api", formdata)
-    let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
-    console.log("api", res)
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
-};
+//     // let formdata = Object.fromEntries(new FormData(eventData));
+//     // gør data og billede klar til at blive sendt som formdata
+//     const formdata = new FormData();
+//     formdata.append('event', (eventData)) // Lav json til string og send med
+//     formdata.append('billede', (eventBillede));
+//     console.log("api", formdata)
+//     let res = await axios.post(eventAPI.baseUrl + "/admin", formdata);
+//     console.log("api", res)
+//     return res.data;
+//   } catch (error) {
+//     console.log("Fejl:", error);
+//   }
+// };
 
 // GET - søg
 export const eventSoegSimple = async (soegeord) => {

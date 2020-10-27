@@ -99,6 +99,11 @@ function Navbar2() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/slider">
+                Slider
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/sponsorer">
                 Sponsorer
               </NavLink>
