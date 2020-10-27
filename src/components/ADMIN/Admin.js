@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// API
 import { hentAlleEvents } from "../API/EventAPI";
+// Icons
+import { FaPlus } from "react-icons/fa";
+import { MdDeleteForever, MdEdit } from "react-icons/md";
+
 function Admin() {
-  
   //* State Admin */
 
   const [Admin, setAdmin] = useState([]);
@@ -10,10 +14,7 @@ function Admin() {
   //* useEffect */
 
   useEffect(() => {
-
-      hentAlleEvents().then(setAdmin);
-
-
+    hentAlleEvents().then(setAdmin);
   }, []);
 
   //* Map */
@@ -21,7 +22,7 @@ function Admin() {
   let AdminList = <h2>Loader...</h2>;
 
   if (Admin.length > 0) {
-    AdminList = Admin.map(e => {
+    AdminList = Admin.map((e) => {
       return (
         <tr key={e._id}>
           <td className="font-weight-lighter">{e._id}</td>
@@ -32,18 +33,20 @@ function Admin() {
           <td>{e.antalpladser}</td>
           <td>
             <Link to={"/ret/" + e._id}>
-            <button type="button" className="btn btn-primary">
-              <span role="img" aria-label="ret">
-                &#9998;
-              </span>
+              <button type="button" className="btn btn-primary">
+                <span role="img" aria-label="ret">
+                  <MdEdit />
+                </span>
               </button>
             </Link>
           </td>
           <td>
             <Link to={"/slet/" + e._id}>
-            <button type="button" className="btn btn-danger"><span role="img" aria-label="delete">
-                &#10060;
-              </span></button>
+              <button type="button" className="btn btn-danger">
+                <span role="img" aria-label="delete">
+                  <MdDeleteForever />
+                </span>
+              </button>
             </Link>
           </td>
         </tr>
@@ -59,31 +62,29 @@ function Admin() {
     <div>
       <h1 className="text-center m-5">Event List</h1>
       <Link to="/admin/opret">
-              <button type="button" className="btn btn-success mb-5">
-                <span role="img" className="mr-2" aria-label="plus">
-                  &#10133;
-                </span>
-                Opret ny
-                </button>
-              </Link>
+        <button type="button" className="btn btn-success mb-5">
+          <span role="img" className="mr-2" aria-label="plus">
+            <FaPlus />
+          </span>
+          Opret ny
+        </button>
+      </Link>
       <div className="container">
-      <table className="table table-striped">
-        <thead>
-          <tr className="thead-dark">
-            <th scope="col">ID</th>
-            <th scope="col">Titel</th>
-            <th scope="col">Dato</th>
-            <th scope="col">Distance</th>
-            <th scope="col">Pris</th>
-            <th scope="col">Antalpladser</th>
-            <th scope="col">Slet</th>
-            <th scope="col">Opret</th>
-          </tr>
-        </thead>
-        <tbody>
-          {AdminList}
-        </tbody>
-      </table>
+        <table className="table table-striped">
+          <thead>
+            <tr className="thead-dark">
+              <th scope="col">ID</th>
+              <th scope="col">Titel</th>
+              <th scope="col">Dato</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Pris</th>
+              <th scope="col">Antalpladser</th>
+              <th scope="col">Slet</th>
+              <th scope="col">Opret</th>
+            </tr>
+          </thead>
+          <tbody>{AdminList}</tbody>
+        </table>
       </div>
     </div>
   );
