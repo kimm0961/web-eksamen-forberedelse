@@ -4,7 +4,7 @@ import { AuthDataContext } from "../../context/AuthDataContext";
 // API
 import { BrugerLogout } from "../../API/AuthAPI";
 
-function Navbar2() {
+const Navbar2 = () => {
   // History
   let history = useHistory();
 
@@ -84,7 +84,7 @@ function Navbar2() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/eventt">
+              <NavLink className="nav-link" to="/events">
                 Events
               </NavLink>
             </li>

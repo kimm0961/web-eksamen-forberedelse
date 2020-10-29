@@ -2,7 +2,7 @@ import React from "react";
 // API
 import { tilmeldNyhedsbrev2 } from "../API/NyhedsbrevAPI";
 
-function TilmeldNyhedsbrev2() {
+const TilmeldNyhedsbrev2 = () => {
 
 
   //* Submit */

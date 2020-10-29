@@ -4,7 +4,8 @@ import parse from "html-react-parser";
 // API
 import { sletEvent, hentEvent } from "../API/EventAPI";
 
-function Slet() {
+const Slet = () => {
+
   // State
   const [event, setEvent] = useState();
 

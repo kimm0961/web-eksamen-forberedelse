@@ -18,7 +18,8 @@ const editorConfiguration = {
   ],
 };
 
-function Opret() {
+const Opret = () => {
+
   //* State */
   const [regioner, setRegioner] = useState({});
 
@@ -164,6 +165,6 @@ function Opret() {
       </div>
     </div>
   );
-}
+};
 
 export default Opret;

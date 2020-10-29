@@ -2,7 +2,8 @@ import React from "react";
 // API
 import { sendBesked2 } from "../../API/KontaktAPI";
 
-function KontaktForm2() {
+const KontaktForm2 = () => {
+
   //* Submit */
   const handleSubmit = (e) => {
     e.preventDefault();

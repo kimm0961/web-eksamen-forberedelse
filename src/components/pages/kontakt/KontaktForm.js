@@ -2,7 +2,8 @@ import React, { useState } from "react";
 // API
 import { sendBesked } from "../../API/KontaktAPI";
 
-function KontaktForm() {
+const KontaktForm = () => {
+  
   //* State kontaktForm */
   const [kontaktForm, setKontaktForm] = useState({
     navn: "",

@@ -11,7 +11,7 @@ import Navbar from "./components/layout/header/Navbar2";
 
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
-import Events from "./components/pages/events/EventsPage";
+import EventsPage from "./components/pages/events/EventsPage";
 import EventFilter from "./components/pages/events/EventsPageFilter";
 import EventsPagePagination from "./components/pages/events/pagination/EventsPagePagination";
 import Slider from "./components/shared/Slider";
@@ -31,6 +31,7 @@ import Ret from "./components/ADMIN/Ret";
 import Slet from "./components/ADMIN/Slet";
 
 import { AuthDataContext } from "./components/context/AuthDataContext";
+
 
 
 
@@ -57,7 +58,7 @@ function App() {
               <Route exact path="/" component={Forside} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/admin" component={Admin} />
-              <Route exact path="/events" component={Events} />
+              <Route exact path="/events" component={EventsPage} />
               <Route exact path="/events-filter" component={EventFilter} />
               <Route exact path="/events-pagination" component={EventsPagePagination} />
               <Route exact path="/slider" component={Slider} />

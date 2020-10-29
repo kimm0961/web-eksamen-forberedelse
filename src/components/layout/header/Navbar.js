@@ -4,7 +4,7 @@ import { AuthDataContext } from "../../context/AuthDataContext";
 // API
 import { BrugerLogout } from "../../API/AuthAPI";
 
-function Navbar() {
+const Navbar = () => {
   //* State soeg */
   const [Soeg, setSoeg] = useState();
 

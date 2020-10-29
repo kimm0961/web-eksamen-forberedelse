@@ -6,7 +6,7 @@ import { hentAlleEvents } from "../API/EventAPI";
 import { FaPlus } from "react-icons/fa";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 
-function Admin() {
+const Admin = () => {
   //* State Admin */
 
   const [Admin, setAdmin] = useState([]);
@@ -88,6 +88,6 @@ function Admin() {
       </div>
     </div>
   );
-}
+};
 
 export default Admin;

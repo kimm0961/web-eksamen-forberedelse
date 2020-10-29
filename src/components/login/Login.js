@@ -4,7 +4,7 @@ import { AuthDataContext } from "../context/AuthDataContext";
 // API
 import { BrugerLogin, BrugerLoggedin } from "../API/AuthAPI";
 
-function Login() {
+const Login = () => {
   //* State */
   const [brugerInfo, setBrugerInfo] = useState({});
 

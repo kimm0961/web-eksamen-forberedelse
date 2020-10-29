@@ -2,7 +2,8 @@ import React, { useState } from "react";
 // API
 import { tilmeldNyhedsbrev } from "../API/NyhedsbrevAPI";
 
-function TilmeldNyhedsbrev() {
+const TilmeldNyhedsbrev = () => {
+
   //* State nyhedsbrev */
   const [nyhedsbrev, setNyhedsbrev] = useState({ email: "" });
 

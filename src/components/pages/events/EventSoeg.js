@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 // API
 import { eventSoegSimple } from "../../API/EventAPI";
 
-function EventSoeg() {
+const EventSoeg = () => {
+
   //* State */
   const [events, setEvents] = useState();
 

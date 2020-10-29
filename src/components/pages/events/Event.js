@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 // API
 import { hentEvent } from "../../API/EventAPI";
 
-function Event() {
+
+const Event = () => {
+  
   //* State event */
   const [event, setEvent] = useState();
 

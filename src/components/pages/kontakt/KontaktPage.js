@@ -3,7 +3,8 @@ import React from 'react'
 import KontaktForm from './KontaktForm'
 import KontaktFormData from './KontaktForm2'
 
-function KontaktPage() {
+const KontaktPage = () => {
+
     return (
         <div>
             <h1>Kontakt</h1>

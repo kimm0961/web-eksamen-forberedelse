@@ -18,7 +18,8 @@ const editorConfiguration = {
   ],
 };
 
-function Ret() {
+const Ret = () => {
+
   //* State */
   const [regioner, setRegioner] = useState({});
   const [event, setEvent] = useState();

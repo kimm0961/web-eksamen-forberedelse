@@ -1,6 +1,7 @@
 import React from "react";
 
-function OmOsPage() {
+const OmOsPage = () => {
+
   return (
     <div>
       <h1>Om os</h1>

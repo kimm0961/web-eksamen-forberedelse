@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { hentAlleSponsor } from "../API/SponsorAPI";
 import "./RandomBox.css";
 
-function RandomBox() {
+const RandomBox = () => {
   // State
 
   const [udvalgt, setUdvalgt] = useState([]);
