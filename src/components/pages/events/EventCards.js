@@ -21,7 +21,7 @@ const EventCards = () => {
 
   }, []);
 
-  //* Metode 1 - map */
+  //* Liste med alle events */
 
   let eventList = <h2>Loader...</h2>;
 
@@ -33,7 +33,7 @@ const EventCards = () => {
             <div className="dot">
               <img
                 className="card-img-top"
-                src={"/Images/Events/" + e.billede}
+                src={"http://localhost:5021/images/events/" + e.billede}
                 alt={e.titel}
               />
               <div className="card-body">
@@ -49,8 +49,6 @@ const EventCards = () => {
         </div>
       );
     });
-  } else {
-    return <div>Ingen events endnu.</div>;
   }
 
   //* Udskriv her */

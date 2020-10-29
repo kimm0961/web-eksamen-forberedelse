@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { eventSoegSimple } from "../../API/EventAPI";
 
 const EventSoeg = () => {
-
   //* State */
   const [events, setEvents] = useState();
 
@@ -14,12 +13,14 @@ const EventSoeg = () => {
 
   //* useEffect */
   useEffect(() => {
-    (async () => {
-      setEvents(await eventSoegSimple(soegeord));
-    })();
+
+    eventSoegSimple(soegeord).then((response) => {
+      if (response !== "error") setEvents(response);
+    });
+
   }, [soegeord]);
 
-  //* Metode 1 - map */
+  //* Liste over events */
   const eventList = events ? (
     events.map((e) => {
       return (
@@ -27,7 +28,7 @@ const EventSoeg = () => {
           <div className="card">
             <div className="embed-responsive embed-responsive-16by9">
               <img
-                src={"/Images/Events/" + e.billede}
+                src={"http://localhost:5021/images/events/" + e.billede}
                 className="card-img-top embed-responsive-item"
                 alt={e.titel}
               />
@@ -62,6 +63,6 @@ const EventSoeg = () => {
       </div>
     </section>
   );
-}
+};
 
 export default EventSoeg;

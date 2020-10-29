@@ -29,27 +29,24 @@ for (i = 0; i < res.data.length; i++) {
 
 //* Kald til API */
 
-// GET - alle
-export const hentAlleEvents = async () => {
-  // Min kode
-  try {
-    let res = await axios.get(eventAPI.baseUrl);
-    OmskrivDato(res);
-    // console.log(res.data);
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
+export const hentAlleEvents = () => {
+  let response = axios
+    .get(eventAPI.baseUrl)
+    .then((response) => {
+      OmskrivDato(response);
+      return response.data;
+    })
+    .catch((error) => {
+      return "error";
+    });
 
-  // // Mariannes kode
-  // let response = await axios.get(eventAPI.baseUrl).then(response => {return response.data}).catch(error => {return "error"})
-  // return response;
+  return response;
 };
 
 // GET - ud fra id
 export const hentEvent = (eventID) => {
   let response = axios
-    .get(eventAPI.baseUrl + "/" + eventID) // http://localhost:5021/event/5f3fd2207e525a19cce3b687
+    .get(eventAPI.baseUrl + "/" + eventID)
     .then((response) => {
       return response.data;
     })
@@ -103,28 +100,17 @@ export const opretEvent = async (eventData) => {
 };
 
 
-
 // GET - søg
-export const eventSoegSimple = async (soegeord) => {
-  try {
-    let res = await axios.get(eventAPI.baseUrl + "/soeg/" + soegeord);
-    OmskrivDato(res);
-    // console.log(res.data);
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
+export const eventSoegSimple = (soegeord) => {
+  let response = axios
+    .get(eventAPI.baseUrl + "/soeg/" + soegeord)
+    .then((response) => {
+      OmskrivDato(response);
+      return response.data;
+    })
+    .catch((error) => {
+      return "error";
+    });
+
+  return response;
 };
-
-
-
-
-// // DELETE - slet
-// export const sletOevelse = async oevelse_id => {
-//   try {
-//     let res = await axios.delete(OevelseAPI.baseUrl + "/admin/" + oevelse_id);
-//     return res.data;
-//   } catch (error) {
-//     console.log("Fejl:", error);
-//   }
-// };
