@@ -1,17 +1,15 @@
 import React from "react";
 //Components
 import KontaktForm from "./KontaktForm";
-import KontaktFormData from "./KontaktForm";
 
 const KontaktPage = () => {
   return (
     <>
       <h1>Kontakt</h1>
-      <h2>Kontaktform med state</h2>
-      <KontaktForm />
-      <br />
-      <h2>Kontaktform med formdata</h2>
-      <KontaktFormData />
+      <section>
+        <h2>Kontaktform</h2>
+        <KontaktForm />
+      </section>
     </>
   );
 };
