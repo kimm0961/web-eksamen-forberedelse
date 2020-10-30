@@ -51,7 +51,7 @@ const EventsPageFilter = () => {
             <div className="dot">
               <img
                 className="card-img-top"
-                src={"/Images/Events/" + e.billede}
+                src={"http://localhost:5021/images/events/" + e.billede}
                 alt={e.titel}
               />
               <div className="card-body">

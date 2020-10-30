@@ -28,7 +28,7 @@ const Event = () => {
       <div className="card my-5 mx-auto" style={{ maxWidth: "30rem" }}>
         <img
           className="card-img-top"
-          src={"/Images/Events/" + event.billede}
+          src={"http://localhost:5021/images/events/" + event.billede}
           alt={event.titel}
         />
         <div className="card-body">

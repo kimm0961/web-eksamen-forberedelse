@@ -27,7 +27,7 @@ const RandomBox = () => {
       <figure className={sponsorclass} style={{ width: "18rem" }}>
         <h4 className="text-secondary font-weight-bold text-center">Random sponsorbox</h4>
         <img
-          src={"/Images/Sponsorer/" + randomSpon.logo}
+          src={"http://localhost:5021/images/sponsorer/" + randomSpon.logo}
           alt={randomSpon.navn + " logo"}
           className="img-fluid"
         />

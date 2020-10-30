@@ -7,8 +7,8 @@ import AuthDataProvider from "./components/context/AuthDataContext";
 // Header & Footer
 import Footer from "./components/layout/footer/Footer";
 // import Navbar from "./components/layout/header/Navbar";
-// import Navbar from "./components/layout/header/Navbar2";
-import NavbarScroll from "./components/layout/header/NavbarScroll";
+import Navbar from "./components/layout/header/Navbar2";
+// import NavbarScroll from "./components/layout/header/NavbarScroll";
 
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
@@ -53,7 +53,8 @@ function App() {
       <AuthDataProvider>
         <div className="App">
           <header>
-            <NavbarScroll />
+            {/* <NavbarScroll /> */}
+            <Navbar />
           </header>
           <main>
             <Switch>
