@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+// Style Features
+import Loader from 'react-spinners/ClipLoader'
 // API
 import { hentAlleOmOs } from "../../API/OmOsAPI";
 
@@ -20,7 +22,7 @@ const OmOsCards = () => {
 
   //* Liste med alle Om Os */
 
-  let omOsList = <h2>Loader...</h2>;
+  let omOsList = <Loader size={35} color={"#333"} />
 
   if (omOs && omOs.length) {
     omOsList = omOs.map((o) => {

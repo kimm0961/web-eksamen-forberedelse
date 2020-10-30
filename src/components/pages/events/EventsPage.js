@@ -1,15 +1,14 @@
-import React from 'react'
+import React from "react";
 // Components
-import EventCards from './EventCards'
+import EventCards from "./EventCards";
 
 const EventsPage = () => {
+  return (
+    <>
+      <h1>Events</h1>
+      <EventCards />
+    </>
+  );
+};
 
-    return (
-        <div>
-            <h1>Events</h1>
-            <EventCards />
-        </div>
-    )
-}
-
-export default EventsPage
+export default EventsPage;

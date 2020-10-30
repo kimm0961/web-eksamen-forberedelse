@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-// API 
+// API
 import { hentAlleEvents } from "../../API/EventAPI";
 import { hentAlleRegioner } from "../../API/RegionAPI";
-
 
 const EventsPageFilter = () => {
   //* State */
@@ -28,13 +27,15 @@ const EventsPageFilter = () => {
 
   if (regioner && regioner.length) {
     regionList = regioner.map((r) => (
-      <option key={r._id} value={r._id} name="regionnavn">{r.regionnavn}</option>
+      <option key={r._id} value={r._id} name="regionnavn">
+        {r.regionnavn}
+      </option>
     ));
   }
 
   //* Map events */
 
-  let eventList = <ClipLoader size={150} color={"#123abc"}/>;
+  let eventList = <ClipLoader size={150} color={"#123abc"} />;
 
   if (events && events.length) {
     eventList = events
@@ -73,7 +74,7 @@ const EventsPageFilter = () => {
   //* Udskriv her */
 
   return (
-    <main>
+    <>
       <form>
         <h5>Hvor i landet</h5>
         <select
@@ -130,7 +131,7 @@ const EventsPageFilter = () => {
         </div>
       </form>
       <div className="card-deck row">{eventList}</div>;
-    </main>
+    </>
   );
 };
 

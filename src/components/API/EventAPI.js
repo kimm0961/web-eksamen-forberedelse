@@ -33,7 +33,7 @@ export const hentAlleEvents = () => {
   let response = axios
     .get(eventAPI.baseUrl)
     .then((response) => {
-      OmskrivDato(response);
+      // OmskrivDato(response);
       return response.data;
     })
     .catch((error) => {

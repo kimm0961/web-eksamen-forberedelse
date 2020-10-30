@@ -60,7 +60,7 @@ const Navbar2 = () => {
   // Navbar
   return (
     <>
-    <nav className="Navbar navbar navbar-expand-md navbar-dark bg-primary">
+    <nav className="Navbar navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container px-0">
         <Link className="navbar-brand d-none d-sm-block" to="/">
           <p className="navbar-brand">Logo</p>
