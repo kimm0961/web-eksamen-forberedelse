@@ -11,13 +11,10 @@ const EventCards = () => {
   //* useEffect */
 
   useEffect(() => {
-    // Min kode
-    hentAlleEvents().then(setEvents);
 
-    // // Mariannes kode
-    // hentAlleEvents().then(response => {
-    //   if(response !== "error") setEvents(response)
-    // });
+    hentAlleEvents().then(response => {
+      if(response !== "error") setEvents(response)
+    });
 
   }, []);
 

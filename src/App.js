@@ -7,7 +7,8 @@ import AuthDataProvider from "./components/context/AuthDataContext";
 // Header & Footer
 import Footer from "./components/layout/footer/Footer";
 // import Navbar from "./components/layout/header/Navbar";
-import Navbar from "./components/layout/header/Navbar2";
+// import Navbar from "./components/layout/header/Navbar2";
+import NavbarScroll from "./components/layout/header/NavbarScroll";
 
 // Pages
 import Forside from "./components/pages/forside/ForsidePage";
@@ -37,6 +38,7 @@ import { AuthDataContext } from "./components/context/AuthDataContext";
 
 
 
+
 const PrivateRoute = ({ component, ...options }) => {
   const { loggedIn } = useContext(AuthDataContext);
   console.log("privateroute: loggedIn", loggedIn);
@@ -51,7 +53,7 @@ function App() {
       <AuthDataProvider>
         <div className="App">
           <header>
-            <Navbar />
+            <NavbarScroll />
           </header>
           <main>
             <Switch>

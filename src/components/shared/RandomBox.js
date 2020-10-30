@@ -12,10 +12,9 @@ const RandomBox = () => {
   useEffect(() => {
     hentAlleSponsor().then(setUdvalgt);
   }, []);
-  console.log("spon", udvalgt);
 
   var randomSpon = udvalgt[Math.floor(Math.random() * udvalgt.length)];
-  // console.log("radom", randomSpon)
+
 
   let sponsorBox = "";
 
