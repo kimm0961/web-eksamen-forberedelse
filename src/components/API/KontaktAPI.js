@@ -5,18 +5,7 @@ const kontaktAPI = {
 };
 
 // POST - send besked
-export const sendBesked = async (kontaktForm) => {
-  try {
-    let res = await axios.post(kontaktAPI.baseUrl, kontaktForm);
-    console.log("send besked 1", res.data);
-    return res.data;
-  } catch (error) {
-    console.log("Fejl:", error);
-  }
-};
-
-// POST - send besked med formdata
-export const sendBesked2 = (besked) => {
+export const sendBesked = (besked) => {
   let formdata = new FormData(besked);
 
   let response = axios

@@ -1,7 +1,7 @@
 import React from "react";
 //Components
 import KontaktForm from "./KontaktForm";
-import KontaktFormData from "./KontaktForm2";
+import KontaktFormData from "./KontaktForm";
 
 const KontaktPage = () => {
   return (
