@@ -1,11 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { AuthDataContext } from "../../context/AuthDataContext";
 
 import $ from "jquery";
-// CSS
-import "./NavbarScroll.css"
+import Logo from "../../../logo.png";
+
+// // CSS
+// import "./NavbarScroll.css"
 // API
 import { BrugerLogout } from "../../API/AuthAPI";
 
@@ -22,15 +24,8 @@ const NavbarScroll = () => {
   // History
   let history = useHistory();
 
-  // handleSoeg
-  const handleSoeg = (e) => {
-    e.preventDefault(); //ungå at component reloader/re-mounter
-    history.push("/soeg/" + e.target.soeg.value);
-  };
-
 // LoggedIn Logout
   const { loggedIn, onLogout } = useContext(AuthDataContext);
-  const [error, setError] = useState(null);
 
   const handleLogout = () => {
     BrugerLogout()
@@ -40,7 +35,6 @@ const NavbarScroll = () => {
       })
       .catch(function (error) {
         console.log(error.message);
-        setError("Der er sket en fejl - " + error.message);
       });
   };
 
@@ -74,11 +68,19 @@ const NavbarScroll = () => {
   // Navbar
   return (
     <>
-    <nav className="Navbar navbar navbar-expand-lg navbar-dark fixed-top">
-      <div className="container px-0">
-        <a className="navbar-brand d-none d-sm-block" href="/">
-          <p className="navbar-brand">Logo</p>
-        </a>
+    <nav className="Navbar navbar navbar-expand-lg navbar-light bg-light fixed-top font-weight-bold text-uppercase py-4">
+        <div className="container px-0">
+          <a className="navbar-brand" href="/#top">
+            <img
+              src={Logo}
+              width="50"
+              height="50"
+              className="d-inline-block mr-2"
+              alt="Boston Gaming logo"
+              loading="lazy"
+            />
+            Boston Gaming
+          </a>
         <button
           className="navbar-toggler order-first"
           type="button"
@@ -93,55 +95,30 @@ const NavbarScroll = () => {
         <div className="collapse navbar-collapse" id="navbarsHeader">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" exact={true} href="/">
-                Forside
+              <a className="nav-link" href="/#productpage">
+                Products
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/events">
-                Events
+              <a className="nav-link" href="/#designpage">
+                Design your own
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/events-filter">
-                Events filter
+              <a className="nav-link" href="/#aboutpage">
+                About
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/events-pagination">
-                Events pagination
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/slider">
-                Slider
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/sponsorer">
-                Sponsorer
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/om-os">
-                Om Os
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/kontakt">
-                Kontakt
+              <a className="nav-link" href="/#contactpage">
+                Contact
               </a>
             </li>
             {loginlogout}
           </ul>
-          <form onSubmit={handleSoeg}>
-          <input name="soeg" type="seach" />
-          <input type="submit" value="søg" />
-        </form>
         </div>
       </div>
     </nav>
-    <h2>{error ? <span>{error}</span> : null}</h2>
     </>
   );
 }

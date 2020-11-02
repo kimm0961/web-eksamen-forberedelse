@@ -1,39 +1,15 @@
 import axios from "axios";
 
-const eventAPI = {
-  baseUrl: "http://localhost:5021/event",
+const productAPI = {
+  baseUrl: "http://localhost:5039/product",
 };
-
-//* Funktioner */
-
-// Funktion Omskriv dato
-const OmskrivDato = (res) => {
-  if (res.data.length !== undefined) {
-var i;
-for (i = 0; i < res.data.length; i++) {
-  let dato = res.data[i].dato;
-  let d = new Date(dato);
-  let n = d.toLocaleDateString();
-  res.data[i].dato = n;
-  // console.log("Dato omskrevet", n);
-}
-  } else if (res.data.length === undefined) {
-    let dato = res.data.dato;
-    let d = new Date(dato);
-    let n = d.toLocaleDateString();
-    res.data.dato = n;
-    // console.log("Dato omskrevet", n);
-  }
-
-}
 
 //* Kald til API */
 
-export const hentAlleEvents = () => {
+export const getAllProducts = () => {
   let response = axios
-    .get(eventAPI.baseUrl)
+    .get(productAPI.baseUrl)
     .then((response) => {
-      // OmskrivDato(response);
       return response.data;
     })
     .catch((error) => {
@@ -44,9 +20,9 @@ export const hentAlleEvents = () => {
 };
 
 // GET - ud fra id
-export const hentEvent = (eventID) => {
+export const getProduct = (product_id) => {
   let response = axios
-    .get(eventAPI.baseUrl + "/" + eventID)
+    .get(productAPI.baseUrl + "/" + product_id)
     .then((response) => {
       return response.data;
     })
@@ -62,7 +38,7 @@ export const retEvent = (event_id, eventData) => {
   let formdata = new FormData(eventData);
 
   let response = axios
-    .put(eventAPI.baseUrl + "/admin/" + event_id, formdata, { withCredentials: true })
+    .put(productAPI.baseUrl + "/admin/" + event_id, formdata, { withCredentials: true })
     .then((response) => {
       return response.data;
     })
@@ -76,7 +52,7 @@ export const retEvent = (event_id, eventData) => {
 // DELETE - slet
 export const sletEvent = async (event_id) => {
   try {
-    let res = await axios.delete(eventAPI.baseUrl + "/admin/" + event_id, { withCredentials: true });
+    let res = await axios.delete(productAPI.baseUrl + "/admin/" + event_id, { withCredentials: true });
     return res.data;
   } catch (error) {
     console.log("Fejl:", error);
@@ -88,7 +64,7 @@ export const opretEvent = async (eventData) => {
   let formdata = new FormData(eventData);
 
   let response = axios
-    .post(eventAPI.baseUrl + "/admin", formdata, { withCredentials: true })
+    .post(productAPI.baseUrl + "/admin", formdata, { withCredentials: true })
     .then((response) => {
       return response.data;
     })
@@ -103,9 +79,8 @@ export const opretEvent = async (eventData) => {
 // GET - søg
 export const eventSoegSimple = (soegeord) => {
   let response = axios
-    .get(eventAPI.baseUrl + "/soeg/" + soegeord)
+    .get(productAPI.baseUrl + "/soeg/" + soegeord)
     .then((response) => {
-      OmskrivDato(response);
       return response.data;
     })
     .catch((error) => {

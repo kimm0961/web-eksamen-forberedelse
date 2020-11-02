@@ -1,42 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
+// API
+import { getAllSlides } from "../API/SliderAPI";
+// Style Features
+import Loader from "react-spinners/ClipLoader";
 
-import { hentAlleEvents } from "../API/EventAPI";
+import "./Slider.css";
 
 const Slider = () => {
-  // State til events
-  const [events, setEvents] = useState();
+  // State
+  const [slides, setSlides] = useState();
 
-  // Useeffect - kald api og hent events
+  // Useeffect
   useEffect(() => {
-    // hent alle events
-    hentAlleEvents().then((response) => {
-      if (response !== "error") setEvents(response);
+    getAllSlides().then((response) => {
+      if (response !== "error") setSlides(response);
     });
   }, []);
 
-  // Lav html til events-billeder
-  let slidebilleder = "Loader ...";
+  let slidesImages = <Loader size={35} color={"#333"} />;
 
-  if (events && events.length) {
-    // Loop/map billeder
-    slidebilleder = events.map((e, i) => {
+  if (slides && slides.length) {
+    // Loop/map images
+    slidesImages = slides.map((s) => {
       return (
-        <Carousel.Item>
+        <Carousel.Item key={s._id} interval={4000}>
           <img
             className="d-block w-100"
-            src={"http://localhost:5021/images/events/" + e.billede}
-            alt={e.titel}
+            src={"http://localhost:5039/images/slider/" + s.sliderimage}
+            alt={s.alttext}
           />
+          <Carousel.Caption className="slider-caption">
+            <h2>Boston Gaming</h2>
+            <p>Affordable - Professionel - Aesthetic</p>
+            <p>Let us build your next rig!</p>
+          </Carousel.Caption>
         </Carousel.Item>
       );
     });
-
   }
   return (
-    <div className="container">
-      <Carousel> {slidebilleder}</Carousel>
-    </div>
+    <section>
+      <Carousel> {slidesImages}</Carousel>
+    </section>
   );
 };
 

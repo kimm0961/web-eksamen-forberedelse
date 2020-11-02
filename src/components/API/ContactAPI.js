@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const kontaktAPI = {
-  baseUrl: "http://localhost:5021/kontakt/",
+  baseUrl: "http://localhost:5039/contact",
 };
 
-// POST - send besked
-export const sendBesked = (besked) => {
-  let formdata = new FormData(besked);
+// POST - send message
+export const sendMessage = (message) => {
+  let formdata = new FormData(message);
 
   let response = axios
     .post(kontaktAPI.baseUrl, formdata)

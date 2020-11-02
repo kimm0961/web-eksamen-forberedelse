@@ -5,9 +5,76 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+h1.anchor{
+  top: -200px; /* baseret på højden af nav */
+}
+
+main{
+  top: 100px;
+  position: relative;
+  min-height: 100vh;
+}
+
+hr{
+  border-top: 2px solid white;
+}
+
+.border-contact input, .border-contact textarea{
+  border-bottom: 2px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 30px;
+  background-color: transparent;
+  color: white;
+}
+
+.some-button{
+  border: 2px white solid;
+  padding: 5px;
+  margin-right: 5px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative
+}
+.some-icon{
+transform: translate(-50%,-50%);
+position: absolute;
+top: 50%;
+left: 50%;
+color: white;
+font-size: 25px;
+}
+
+/* Tilfældig sponsor */
+
+.alm {
+  background-color:#C77B30;
+  color: black;
+  font-weight: bold;
+}
+.gold {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+}
+.silver {
+  background-color: silver;
+  color: black;
+  font-weight: bold;
 }

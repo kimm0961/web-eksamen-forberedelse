@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { AuthDataContext } from "../context/AuthDataContext";
 // API
 import { BrugerLogin, BrugerLoggedin } from "../API/AuthAPI";
+// Icons
+import { FaUserCircle } from "react-icons/fa";
 
 const Login = () => {
   //* State */
@@ -28,10 +30,11 @@ const Login = () => {
 
   return (
     <div
-      className="container border border-secondary rounded mt-5 p-4 bg-light"
+      className="container text-center border border-secondary rounded mt-5 p-4 bg-light"
       style={{ width: "18rem" }}
     >
-      <h1 className="mb-4 text-center text-success">Login</h1>
+    <FaUserCircle  size={80} className="text-dark"/>
+      <h1 className="mb-4 text-success">Login</h1>
       <form
         className="mb-5"
         method="post"
@@ -39,18 +42,18 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         <div className="form-group">
-          <label htmlFor="text">Brugernavn</label>
+          <label htmlFor="name">Brugernavn</label>
           <input
+          id="name"
             type="text"
-            name="brugernavn"
-            placeholder="Brugernavn"
+            name="name"
+            placeholder="User name"
             required
             className="form-control"
-            aria-describedby="brugernavn"
             onChange={(e) =>
-              setBrugerInfo({ ...brugerInfo, brugernavn: e.target.value })
+              setBrugerInfo({ ...brugerInfo, name: e.target.value })
             }
-            value={brugerInfo.brugernavn || ""}
+            value={brugerInfo.name || ""}
           />
         </div>
         <div className="form-group">
@@ -69,12 +72,10 @@ const Login = () => {
             autoComplete="on"
           />
         </div>
-        <button className="btn btn-success" type="submit" aria-label="Bruger login knap">
-          Indsend
+        <button className="btn btn-success" type="submit">
+          Login now
         </button>
       </form>
-      {/* <p className="text-danger font-italic m-0">Har du ikke en profil?</p>
-        <a href='/register'>Register</a> */}
     </div>
   );
 }

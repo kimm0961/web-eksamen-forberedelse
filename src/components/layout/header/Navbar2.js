@@ -4,6 +4,8 @@ import { AuthDataContext } from "../../context/AuthDataContext";
 // API
 import { BrugerLogout } from "../../API/AuthAPI";
 
+import Logo from "../../../logo.png";
+
 const Navbar2 = () => {
   // History
   let history = useHistory();
@@ -14,7 +16,7 @@ const Navbar2 = () => {
     history.push("/soeg/" + e.target.soeg.value);
   };
 
-// LoggedIn Logout
+  // LoggedIn Logout
   const { loggedIn, onLogout } = useContext(AuthDataContext);
   const [error, setError] = useState(null);
 
@@ -60,76 +62,69 @@ const Navbar2 = () => {
   // Navbar
   return (
     <>
-    <nav className="Navbar navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container px-0">
-        <Link className="navbar-brand d-none d-sm-block" to="/">
-          <p className="navbar-brand">Logo</p>
-        </Link>
-        <button
-          className="navbar-toggler order-first"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsHeader"
-          aria-controls="navbarsHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarsHeader">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <NavLink className="nav-link" exact={true} to="/">
-                Forside
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/events">
-                Events
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/events-filter">
-                Events filter
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/events-pagination">
-                Events pagination
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/slider">
-                Slider
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/sponsorer">
-                Sponsorer
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/om-os">
-                Om Os
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/kontakt">
-                Kontakt
-              </NavLink>
-            </li>
-            {loginlogout}
-          </ul>
-          <form onSubmit={handleSoeg}>
-          <input name="soeg" type="seach" />
-          <input type="submit" value="søg" />
-        </form>
+      <nav className="Navbar navbar navbar-expand-lg navbar-light bg-light font-weight-bold text-uppercase">
+        <div className="container px-0">
+          <Link className="navbar-brand" to="/">
+            <img
+              src={Logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="Boston Gaming logo"
+              loading="lazy"
+            />
+            Boston Gaming
+          </Link>
+          <button
+            className="navbar-toggler order-first"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarsHeader"
+            aria-controls="navbarsHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarsHeader">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <NavLink className="nav-link" exact={true} to="/">
+                  Front page
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/products">
+                  Products
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/design-your-own">
+                  Design your own
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about">
+                  About
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/contact">
+                  Contact
+                </NavLink>
+              </li>
+              {loginlogout}
+            </ul>
+            <form onSubmit={handleSoeg}>
+              <input name="soeg" type="seach" />
+              <input type="submit" value="søg" />
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
-    <h2>{error ? <span>{error}</span> : null}</h2>
+      </nav>
+      <h2>{error ? <span>{error}</span> : null}</h2>
     </>
   );
-}
+};
 
 export default Navbar2;
