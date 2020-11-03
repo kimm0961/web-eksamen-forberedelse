@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 import { AuthDataContext } from "../../context/AuthDataContext";
 
@@ -113,6 +113,11 @@ const NavbarScroll = () => {
               <a className="nav-link" href="/#contactpage">
                 Contact
               </a>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/admin">
+                Admin
+              </NavLink>
             </li>
             {loginlogout}
           </ul>

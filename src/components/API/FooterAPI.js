@@ -25,9 +25,9 @@ const footerAPI = {
 
 
 
-// PUT - ret
-export const retOmOs = ( omOsData) => {
-  let formdata = new FormData(omOsData);
+// PUT - update
+export const updateFooter = (footerData) => {
+  let formdata = new FormData(footerData);
 
   let response = axios
     .put(footerAPI.baseUrl + "/admin", formdata, { withCredentials: true })

@@ -19,7 +19,7 @@ export const getAllProducts = () => {
   return response;
 };
 
-// GET - ud fra id
+// GET - from id
 export const getProduct = (product_id) => {
   let response = axios
     .get(productAPI.baseUrl + "/" + product_id)
@@ -33,12 +33,12 @@ export const getProduct = (product_id) => {
   return response;
 };
 
-// PUT - ret
-export const retEvent = (event_id, eventData) => {
-  let formdata = new FormData(eventData);
+// PUT - update
+export const updateProduct = (product_id, productData) => {
+  let formdata = new FormData(productData);
 
   let response = axios
-    .put(productAPI.baseUrl + "/admin/" + event_id, formdata, { withCredentials: true })
+    .put(productAPI.baseUrl + "/admin/" + product_id, formdata, { withCredentials: true })
     .then((response) => {
       return response.data;
     })
@@ -49,19 +49,19 @@ export const retEvent = (event_id, eventData) => {
   return response;
 };
 
-// DELETE - slet
-export const sletEvent = async (event_id) => {
+// DELETE
+export const deleteProduct = async (product_id) => {
   try {
-    let res = await axios.delete(productAPI.baseUrl + "/admin/" + event_id, { withCredentials: true });
+    let res = await axios.delete(productAPI.baseUrl + "/admin/" + product_id, { withCredentials: true });
     return res.data;
   } catch (error) {
-    console.log("Fejl:", error);
+    console.log("Error:", error);
   }
 };
 
-// POST - opret
-export const opretEvent = async (eventData) => {
-  let formdata = new FormData(eventData);
+// POST - create
+export const createProduct = async (productData) => {
+  let formdata = new FormData(productData);
 
   let response = axios
     .post(productAPI.baseUrl + "/admin", formdata, { withCredentials: true })

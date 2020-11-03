@@ -25,9 +25,9 @@ const aboutAPI = {
 
 
 
-// PUT - ret
-export const retOmOs = ( omOsData) => {
-  let formdata = new FormData(omOsData);
+// PUT - update
+export const updateAbout = (aboutData) => {
+  let formdata = new FormData(aboutData);
 
   let response = axios
     .put(aboutAPI.baseUrl + "/admin", formdata, { withCredentials: true })

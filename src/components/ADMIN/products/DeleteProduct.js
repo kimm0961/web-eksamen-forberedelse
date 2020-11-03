@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
-import parse from "html-react-parser";
 // API
-import { sletEvent, hentEvent } from "../API/EventAPI";
+import { deleteProduct, getProduct } from "../../API/ProductAPI";
+// import parse from "html-react-parser";
 
-const Slet = () => {
+const DeleteProduct = () => {
 
   // State
-  const [event, setEvent] = useState();
+  const [product, setProduct] = useState();
 
   // History
 
@@ -15,22 +15,22 @@ const Slet = () => {
 
   // Params
 
-  const { event_id } = useParams();
+  const { product_id } = useParams();
 
   // useEffect
 
   useEffect(() => {
     (async () => {
-      setEvent(await hentEvent(event_id));
+      setProduct(await getProduct(product_id));
     })();
-  }, [event_id]);
+  }, [product_id]);
 
   // Submit
 
   const handleSubmit = (e) => {
     e.preventDefault();
     (async () => {
-      setEvent(await sletEvent(event_id));
+      setProduct(await deleteProduct(product_id));
       // redirect
       history.push("/admin");
     })();
@@ -38,31 +38,32 @@ const Slet = () => {
 
   // Metode 1 - if
 
-  let eventen = "";
+  let producten = "";
 
-  if (event !== undefined) {
-    eventen = (
+  if (product !== undefined) {
+    producten = (
       <div className="container">
-        <h1 className="text-center mt-5">Slet</h1>
+        <h1 className="text-center mt-5">Delete</h1>
         <div
           className="card text-white mx-auto mb-5"
           style={{ maxWidth: "18rem" }}
         >
           <div className="card-header text-danger font-weight-bold">
-            Er du sikker på, at du vil slette?
+            Are you sure that you want to delete?
           </div>
           <div className="card-body bg-dark text-center">
-            <h5 className="card-title">{event.titel}</h5>
-            {parse(event.beskrivelse)}
+            <h5 className="card-title">{product.title}</h5>
+            <p>{product.content}</p>
+            {/* {parse(product.content)} */}
           </div>
         </div>
         <div className="text-center">
           <Link
             className="btn btn-secondary mr-3"
-            to="/admin/adminevents"
+            to="/admin"
             role="button"
           >
-            Fortryd
+            Regret
           </Link>
           <Link
             className="btn btn-warning"
@@ -70,16 +71,16 @@ const Slet = () => {
             role="button"
             onClick={handleSubmit}
           >
-            Slet
+            Delete
           </Link>
         </div>
       </div>
     );
   }
 
-  // Udskriv
+  // Return here
 
-  return <div>{eventen}</div>;
+  return <div>{producten}</div>;
 }
 
-export default Slet;
+export default DeleteProduct;

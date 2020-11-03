@@ -26,10 +26,24 @@ import Product from "./components/pages/products/Product";
 
 // ADMIN
 import Login from "./components/login/Login";
-// import Admin from "./components/ADMIN/Admin";
-// import Opret from "./components/ADMIN/Opret";
-// import Ret from "./components/ADMIN/Ret";
-// import Slet from "./components/ADMIN/Slet";
+import Admin from "./components/ADMIN/Admin";
+// Admin products
+import CreateProduct from "./components/ADMIN/products/CreateProduct";
+import UpdateProduct from "./components/ADMIN/products/UpdateProduct";
+import DeleteProduct from "./components/ADMIN/products/DeleteProduct";
+
+
+// Admin slider
+import CreateSlider from "./components/ADMIN/slider/CreateSlider";
+
+// Admin about
+import UpdateAbout from "./components/ADMIN/aboutFooter/UpdateAbout";
+
+// Admin footer
+import UpdateFooter from "./components/ADMIN/aboutFooter/UpdateFooter";
+
+// Admin contact
+
 
 // import { AuthDataContext } from "./components/context/AuthDataContext";
 
@@ -60,6 +74,13 @@ function App() {
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/admin" component={Admin} />
+              <Route excat path="/admin/create" component={CreateProduct} />
+              <Route excat path="/admin/update/:product_id" component={UpdateProduct} />
+              <Route exact path="/admin/delete/:product_id" component={DeleteProduct} />
+              <Route excat path="/admin/slider/create" component={CreateSlider} />
+              <Route excat path="/admin/about/update" component={UpdateAbout} />
+              <Route excat path="/admin/footer/update" component={UpdateFooter} />
               <Route exact path="/:product_id" component={Product} />
               {/* <PrivateRoute exact path="/admin" component={Admin} />
               <Route exact path="/events-filter" component={EventFilter} />

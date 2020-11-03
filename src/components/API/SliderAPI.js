@@ -23,14 +23,26 @@ const sliderAPI = {
     return response;
   };
 
+// DELETE
+export const deleteSlider = async (slider_id) => {
+  let response = axios
+  .delete(sliderAPI.baseUrl + "/admin/" + slider_id)
+  .then((response) => {
+    return response.data;
+  })
+  .catch((error) => {
+    return "error";
+  });
 
+return response;
+};
 
-// PUT - ret
-export const retOmOs = ( omOsData) => {
-  let formdata = new FormData(omOsData);
+// POST - create
+export const createSlider = async (sliderData) => {
+  let formdata = new FormData(sliderData);
 
   let response = axios
-    .put(sliderAPI.baseUrl + "/admin", formdata, { withCredentials: true })
+    .post(sliderAPI.baseUrl + "/admin", formdata, { withCredentials: true })
     .then((response) => {
       return response.data;
     })
