@@ -1,8 +1,25 @@
-.slider-caption {
+
+.overlay-slider {
+    position: absolute;
     background: black;
     opacity: .8;
     transform: translate(-50%,-50%);
     top:50%;
     left:50%;
     bottom: unset;
+    padding:15px;
 }
+
+.overlay-slider h2{
+    font-size: 3rem;
+}
+
+.overlay-slider p{
+    font-size: 1.2rem;
+}
+
+section#slider{
+    position: relative;
+    text-align: center;
+}
+

@@ -1,16 +1,15 @@
 import React from "react";
 //Components
 import ContactForm from "./ContactForm";
-// Icons
-import { FaStar } from "react-icons/fa";
+import { StarLine } from "../../shared/StarLine";
 
 const ContactPage = () => {
   return (
     <section className="text-center py-5">
-      <h1 className="anchor" id="contactpage">
+      <h1><span id="contactpage" className="anchor"></span>
         Contact Us
       </h1>
-      <FaStar size={28} className="mb-4"/>
+      <StarLine />
       <ContactForm />
     </section>
   );

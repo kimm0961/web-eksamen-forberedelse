@@ -1,15 +1,14 @@
 import React from "react";
 // Components
 import About from "./About";
-// Icons
-import { FaStar } from "react-icons/fa";
+import { StarLine } from "../../shared/StarLine";
 
 const AboutPage = () => {
   return (
     <section className="text-center bg-dark py-5">
     <hr/>
-      <h1 className="anchor" id="aboutpage">About</h1>
-      <FaStar size={28} className="mb-4"/>
+      <h1><span id="aboutpage" className="anchor"></span>About</h1>
+     <StarLine/>
       <About />
     </section>
   );

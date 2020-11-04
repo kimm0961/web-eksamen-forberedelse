@@ -18,7 +18,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="pt-4 my-md-5 pt-md-5 text-center">
+    <footer className="mt-md-5 pt-md-5 text-center">
     <div className="row bg-dark py-5">
       <div className="col-6 col-md">
         <h5>Locations</h5>

@@ -19,12 +19,12 @@ const ContactForm = () => {
   //* Return */
   return (
     <form className="mx-auto text-left border-contact" onSubmit={handleSubmit} style={{ width: "28rem" }}>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="nameContact">Name</label>
       <input
         type="text"
         name="name"
         className="form-control"
-        id="name"
+        id="nameContact"
         required
       />
       <label htmlFor="email">Email Address</label>

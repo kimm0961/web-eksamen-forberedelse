@@ -5,12 +5,14 @@ import ProductsPage from './products/ProductsPage'
 import SignupNewsletter from '../shared/SignupNewsletter'
 import AboutPage from './about/AboutPage'
 import ContactPage from './contact/ContactPage'
+import DesignRigPage from './designOwnRig/DesignRigPage'
 
 const MainPage = () => {
     return (
         <>
-        <Slider />
+        {/* <Slider /> */}
         <ProductsPage />
+        <DesignRigPage/>
         <SignupNewsletter />
         <AboutPage />
         <ContactPage />
