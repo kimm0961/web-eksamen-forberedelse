@@ -77,9 +77,9 @@ export const createProduct = async (productData) => {
 
 
 // GET - søg
-export const eventSoegSimple = (soegeord) => {
+export const productSearch = (searchWord) => {
   let response = axios
-    .get(productAPI.baseUrl + "/soeg/" + soegeord)
+    .get(productAPI.baseUrl + "/search/" + searchWord)
     .then((response) => {
       return response.data;
     })

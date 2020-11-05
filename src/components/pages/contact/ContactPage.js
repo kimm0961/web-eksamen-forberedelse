@@ -5,7 +5,7 @@ import { StarLine } from "../../shared/StarLine";
 
 const ContactPage = () => {
   return (
-    <section className="text-center py-5">
+    <section className="py-5">
       <h1><span id="contactpage" className="anchor"></span>
         Contact Us
       </h1>

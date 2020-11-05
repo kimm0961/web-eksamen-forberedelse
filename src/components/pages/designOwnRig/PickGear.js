@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 // API
 import { getAllGear } from "../../API/GearAPI";
 import { getAllGearCategories } from "../../API/GearCategory";
+import ContactForm2 from "../contact/ContactForm2";
 
 const PickGear = () => {
   const [gear, setGear] = useState();
   const [categories, setCategories] = useState();
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState("");
 
   useEffect(() => {
     getAllGear().then((response) => {
@@ -28,15 +29,17 @@ const PickGear = () => {
         })
         .map((g) => (
           <div key={g._id}>
-            <input
-              type="radio"
-              name={g.gearcategory.gearcategorytitle}
-              id={g._id}
-              value={g.geartitle}
-              data-price={g.price}
-              onChange={handleChange}
-            />
-            <label htmlFor={g._id}>{g.geartitle} </label>
+            <label>
+              <input
+                type="radio"
+                name={g.gearcategory.gearcategorytitle}
+                value={g.geartitle}
+                data-price={g.price}
+                onChange={handleChange}
+                className="mr-2"
+              />
+              {g.geartitle}
+            </label>
             <p>{g.price}</p>
           </div>
         ));
@@ -57,20 +60,32 @@ const PickGear = () => {
   if (categories && categories.length) {
     categoryList = categories.map((c) => {
       return (
-        <div className="bg-dark mb-2" key={c._id}>
-          <h4>{c.gearcategorytitle}</h4>
-
-          {getGearFromCategory(c.gearcategorytitle)}
+        <div className="row bg-dark mb-2 rounded p-3" key={c._id}>
+          <div className="col-md-4">
+            <h4>{c.gearcategorytitle}</h4>
+          </div>
+          <div className="col-md-8">
+            {getGearFromCategory(c.gearcategorytitle)}
+          </div>
         </div>
       );
     });
   }
 
   let gearArray = Object.entries(selected);
-  console.log(gearArray);
 
-  let oo = Object.values(gearArray);
-  console.log("he", oo);
+  let gearPriceList;
+
+  if (gearArray && gearArray.length) {
+    gearPriceList = gearArray.map((c) => {
+      return (
+        <tr className="gearSummary">
+          <th className="font-weight-normal" scope="row">{c[0]}</th>
+          <td className="text-right"><span className="bg-dark text-white p-2 rounded">{c[1]}</span></td>
+        </tr>
+      );
+    });
+  }
 
   let sum = 0;
   for (const num of Object.values(selected)) {
@@ -80,13 +95,23 @@ const PickGear = () => {
 
   return (
     <div className="row">
-      <div className="col-md-6">
-        <h2>Pick your gear</h2>
+      <div className="col-lg-6">
+        <h2 className="my-5">Pick your gear</h2>
         {categoryList}
       </div>
-      <div className="col-md-6">
-        <h2>Summary</h2>
-        <div></div>
+      <div className="col-lg-6">
+        <h2 className="my-5">Summary</h2>
+        <div>
+          <table class="table table-light rounded">
+            {gearPriceList}
+            <tr>
+              <th className="totaltext"scope="row">Total</th>
+              <td className="text-right"><span className="bg-success text-white p-2 rounded">{sum}</span></td>
+            </tr>
+          </table>
+        </div>
+        <h3>Contact us!</h3>
+        <ContactForm2 />
       </div>
     </div>
   );

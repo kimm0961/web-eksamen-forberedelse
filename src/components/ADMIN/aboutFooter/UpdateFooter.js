@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 // API
 import { getFooter, updateFooter } from "../../API/FooterAPI";
 
 // CK Editor
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { StarLine } from "../../shared/StarLine";
 const editorConfiguration = {
   toolbar: [
     "bold",
@@ -24,11 +24,6 @@ const UpdateFooter = () => {
   const [about, setAbout] = useState();
   const [location, setLocation] = useState();
 
-
-
-  // //* History */
-  const history = useHistory();
-
   useEffect(() => {
 
     getFooter().then((response) => {
@@ -41,23 +36,23 @@ const UpdateFooter = () => {
   //* Submit *
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (window.confirm("Are you sure you want to update footer")) {
     updateFooter(e.target).then((response) => {
       console.log(response);
     });
-
-    // redirect
-    history.push("/admin");
+  }
   };
 
   //* Return here */
 
   return (
-    <div className="container">
-      <h1 className="text-center m-5">Update footer</h1>
+    <section className="container adminSection">
+      <h1 className="text-center mt-5"><span id="footeradmin" className="anchor"></span>Update footer</h1>
+      <StarLine />
       {footer ? (
         <div className="container" style={{ maxWidth: "40rem" }}>
           <form onSubmit={handleSubmit}>
+            <h2>About</h2>
             <label>
               <textarea
                 name="about"
@@ -82,6 +77,7 @@ const UpdateFooter = () => {
             />
             <br />
             <br />
+            <h2>Location</h2>
             <label>
               <textarea
                 name="location"
@@ -106,13 +102,13 @@ const UpdateFooter = () => {
             />
             <br />
             <br />
-            <button type="submit">Save footer</button>
+            <button type="submit" className="btn btn-primary">Save footer</button>
           </form>
         </div>
       ) : (
         <h2>Please wait...</h2>
       )}
-    </div>
+    </section>
   );
 };
 

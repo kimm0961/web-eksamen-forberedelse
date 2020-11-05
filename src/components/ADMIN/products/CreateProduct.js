@@ -56,28 +56,27 @@ const CreateProduct = () => {
     history.push("/admin");
   };
 
-  //* Udskriv */
+  //* Return */
 
   return (
     <div className="container">
       <h1 className="text-center m-5">Create a new product</h1>
       <div className="container" style={{ maxWidth: "40rem" }}>
         <form onSubmit={handleSubmit}>
-          <label>
-            Title
-            <input name="title" id="inpTitle" type="text" placeholder="Title" />
-          </label>
+        <label htmlFor="inpTitlecreate">Title</label>
+            <br/>
+            <input name="title" id="inpTitlecreate" type="text" placeholder="Title" />
           <br />
           <br />
-          <label>
+          <label htmlFor="txtContentCreate">Content</label>
+            <br/>
             <textarea
               name="content"
               defaultValue={content}
-              id="txtContent"
+              id="txtContentCreate"
               style={{ display: "none" }}
               placeholder="Content"
             ></textarea>
-          </label>
           <CKEditor
             editor={ClassicEditor}
             data=""
@@ -89,19 +88,9 @@ const CreateProduct = () => {
           />
           <br />
           <br />
-          {/* <label>
-            Pris i kr.
-            <input
-              name="pris"
-              type="number"
-              min="0"
-              max="10000"
-              placeholder="Pris i kr"
-            />
-          </label>
-          <br />
-          <br /> */}
-          <select name="category" defaultValue="DEFAULT" id="categoryselect">
+          <label htmlFor="categoryselectcreate">Choose a category</label>
+            <br/>
+          <select name="category" defaultValue="DEFAULT" id="categoryselectcreate">
             <option value="DEFAULT" disabled>
               Choose a category ....
             </option>
@@ -124,8 +113,7 @@ const CreateProduct = () => {
           </div>
           <br />
           <br />
-          <button type="button">Regret</button>
-          <button type="submit">Save product</button>
+          <button type="submit" className="btn btn-primary">Save product</button>
         </form>
       </div>
     </div>

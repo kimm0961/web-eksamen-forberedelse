@@ -12,28 +12,29 @@ const SignupNewsletter = () => {
         alert("You are now signed up for our newsletter, thanks");
       }
     });
+    e.target.reset();
   };
 
   //* Return */
   return (
     <form
-      className="bg-light text-dark p-4 form-inline"
+      className="p-4 form-inline newsletterForm"
       onSubmit={handleSubmit}
     >
-    <label htmlFor="name" className="m-3">Name</label>
+    <label htmlFor="nameNewsletter" className="m-3">Name</label>
       <input
         type="text"
         name="name"
         className="form-control"
-        id="name"
+        id="nameNewsletter"
         required
       />
-      <label htmlFor="inputEmail" className="m-3">Email</label>
+      <label htmlFor="emailNewsletter" className="m-3">Email</label>
       <input
         className="form-control"
         type="email"
         name="email"
-        id="inputEmail"
+        id="emailNewsletter"
         required
       ></input>
       <button type="submit" value="Submit" className="btn btn-success m-3">

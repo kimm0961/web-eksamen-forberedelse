@@ -72,34 +72,29 @@ const UpdateProduct = () => {
       {product ? (
         <div className="container" style={{ maxWidth: "40rem" }}>
           <form onSubmit={handleSubmit}>
-            <label>
-              Title
-              <input
-                name="title"
-                defaultValue={product.title}
-                id="inpTitle"
-                type="text"
-                placeholder="Title"
-              />
-            </label>
+            <label htmlFor="inpTitle">Title</label>
+            <br/>
+            <input
+              name="title"
+              defaultValue={product.title}
+              id="inpTitle"
+              type="text"
+              placeholder="Title"
+            />
             <br />
             <br />
-            <label>
-              {/* <textarea
-                name="content"
-                defaultValue={product.content}
-                id="txtcontent"
-                placeholder="content" style={{display: "none"}}
-              /> */}
+            <label htmlFor="txtContentupdate">Content</label>
+            <br/>
               <textarea
                 name="content"
                 defaultValue={content}
-                id="txtContent"
+                id="txtContentupdate"
                 placeholder="Content"
                 style={{ display: "none" }}
               />
-            </label>
-            <CKEditor className="text-dark"
+            
+            <CKEditor
+              className="text-dark"
               editor={ClassicEditor}
               data={product.content}
               config={editorConfiguration}
@@ -114,23 +109,12 @@ const UpdateProduct = () => {
             />
             <br />
             <br />
-            {/* <label>
-              Pris i kr.
-              <input
-                name="pris"
-                defaultValue={product.pris}
-                type="number"
-                min="0"
-                max="10000"
-                placeholder="Pris i kr"
-              />
-            </label>
-            <br />
-            <br /> */}
+            <label htmlFor="categoryselectupdate">Choose a category</label>
+            <br/>
             <select
               name="category"
               defaultValue={product.category._id}
-              id="categoryselect"
+              id="categoryselectupdate"
             >
               {categoryList}
             </select>
@@ -148,13 +132,16 @@ const UpdateProduct = () => {
                 withPreview={true}
                 required={true}
                 defaultImages={[
-                  "http://localhost:5039/images/product/" + product.productimage,
+                  "http://localhost:5039/images/product/" +
+                    product.productimage,
                 ]}
               />
             </div>
             <br />
             <br />
-            <button type="submit">Save product</button>
+            <button type="submit" className="btn btn-primary">
+              Save product
+            </button>
           </form>
         </div>
       ) : (

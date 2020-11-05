@@ -50,6 +50,7 @@ const ProductCards = () => {
     getAllCategories().then((response) => {
       if (response !== "error") setCategories(response);
     });
+    
   }, []);
 
   //* List with all products */
@@ -73,7 +74,7 @@ const ProductCards = () => {
             />
           </div>
           <Link className="btn btn-danger" role="button" to={"/" + p._id}>
-            Læs mere
+            Read more
           </Link>
         </article>
       );

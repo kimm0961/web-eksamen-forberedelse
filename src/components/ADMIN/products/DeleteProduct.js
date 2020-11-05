@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
+// import parse from "html-react-parser";
 // API
 import { deleteProduct, getProduct } from "../../API/ProductAPI";
-// import parse from "html-react-parser";
 
 const DeleteProduct = () => {
 
   // State
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState("");
 
   // History
 
@@ -53,8 +53,8 @@ const DeleteProduct = () => {
           </div>
           <div className="card-body bg-dark text-center">
             <h5 className="card-title">{product.title}</h5>
+            {/* {product ? parse(product.content) : ""} */}
             <p>{product.content}</p>
-            {/* {parse(product.content)} */}
           </div>
         </div>
         <div className="text-center">

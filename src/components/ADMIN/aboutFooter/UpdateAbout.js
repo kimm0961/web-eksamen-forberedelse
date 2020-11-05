@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 // API
 import { getAbout, updateAbout } from "../../API/AboutAPI";
 
 // CK Editor
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { StarLine } from "../../shared/StarLine";
 const editorConfiguration = {
   toolbar: [
     "bold",
@@ -24,11 +24,6 @@ const UpdateAbout = () => {
   const [content1, setContent1] = useState();
   const [content2, setContent2] = useState();
 
-
-
-  // //* History */
-  const history = useHistory();
-
   useEffect(() => {
 
     getAbout().then((response) => {
@@ -41,23 +36,23 @@ const UpdateAbout = () => {
   //* Submit *
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (window.confirm("Are you sure you want to update about")) {
     updateAbout(e.target).then((response) => {
       console.log(response);
     });
-
-    // redirect
-    history.push("/admin");
+  }
   };
 
   //* Udskriv */
 
   return (
-    <div className="container">
-      <h1 className="text-center m-5">Update about</h1>
+    <section className="container adminSection">
+      <h1 className="text-center mt-5"><span id="aboutadmin" className="anchor"></span>Update about</h1>
+      <StarLine />
       {about ? (
         <div className="container" style={{ maxWidth: "40rem" }}>
           <form onSubmit={handleSubmit}>
+            <h2>Edit content 1</h2>
             <label>
               <textarea
                 name="content1"
@@ -82,6 +77,7 @@ const UpdateAbout = () => {
             />
             <br />
             <br />
+            <h2>Edit content 2</h2>
             <label>
               <textarea
                 name="content2"
@@ -106,13 +102,13 @@ const UpdateAbout = () => {
             />
             <br />
             <br />
-            <button type="submit">Save about</button>
+            <button type="submit" className="btn btn-primary">Save about</button>
           </form>
         </div>
       ) : (
         <h2>Please wait...</h2>
       )}
-    </div>
+    </section>
   );
 };
 

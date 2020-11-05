@@ -5,10 +5,12 @@ import { StarLine } from "../../shared/StarLine";
 
 const AboutPage = () => {
   return (
-    <section className="text-center bg-dark py-5">
-    <hr/>
-      <h1><span id="aboutpage" className="anchor"></span>About</h1>
-     <StarLine/>
+    <section className="bg-dark py-5">
+      <hr />
+      <h1>
+        <span id="aboutpage" className="anchor"></span>About
+      </h1>
+      <StarLine />
       <About />
     </section>
   );

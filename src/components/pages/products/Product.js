@@ -50,7 +50,7 @@ const Product = () => {
 
   //* Return here */
   return (
-    <section className="text-center">
+    <section className="text-center newPage">
       {producten}
       <button
         type="button"

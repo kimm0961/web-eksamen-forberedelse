@@ -21,3 +21,28 @@ export const signupNewsletter = async (newsletter) => {
 
   return response;
 };
+
+
+// GET - all
+export const getAllNewsletter = async () => {
+  try {
+    let res = await axios.get(newsletterAPI.baseUrl + "/admin");
+    return res.data;
+  } catch (error) {
+    console.log("Error:", error);
+  }
+};
+
+// DELETE
+export const deleteNewsletter = async (newsletter_id) => {
+  let response = axios
+  .delete(newsletterAPI.baseUrl + "/admin/" + newsletter_id)
+  .then((response) => {
+    return response.data;
+  })
+  .catch((error) => {
+    return "error";
+  });
+
+return response;
+};

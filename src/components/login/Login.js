@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <div
-      className="container text-center border border-secondary rounded mt-5 p-4 bg-light"
+      className="container text-center border border-secondary newPage rounded mt-5 p-4 bg-light"
       style={{ width: "18rem" }}
     >
     <FaUserCircle  size={80} className="text-dark"/>

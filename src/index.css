@@ -53,13 +53,13 @@ hr.right {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  
 }
 
 h1,
 h2 {
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
 }
 
 .border-contact input,
@@ -112,4 +112,46 @@ h2 {
 
 .ck-content {
   color: black;
+}
+
+.newPage {
+  margin-top: 200px !important;
+}
+
+.adminSection{
+  margin-bottom: 150px;
+}
+
+.newsletterForm {
+  border-top: solid 5px green;
+  border-bottom: solid 5px green;
+}
+
+nav.sidebar{
+  height: 100vh;
+}
+
+.deletebutton {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
+}
+
+.gearSummary {
+  border-bottom: 2px solid grey;
+}
+
+th.totaltext{
+  font-weight: bold;
+  font-size: larger;
+}
+
+.contact-form-2 input{
+  background-color: #343A40;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
 }

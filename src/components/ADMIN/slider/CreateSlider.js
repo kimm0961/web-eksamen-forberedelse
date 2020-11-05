@@ -5,12 +5,8 @@ import { useHistory } from "react-router-dom";
 import { createSlider } from "../../API/SliderAPI";
 
 const CreateSlider = () => {
-
-
   // //* History */
   const history = useHistory();
-
-
 
   //* Submit *
   const handleSubmit = (e) => {
@@ -30,10 +26,14 @@ const CreateSlider = () => {
       <h1 className="text-center m-5">Upload a new slider image</h1>
       <div className="container" style={{ maxWidth: "40rem" }}>
         <form onSubmit={handleSubmit}>
-          <label>
-          Alt text
-            <input name="alttext" id="inpAlttext" type="text" placeholder="Alt text" />
-          </label>
+          <label htmlFor="inpAlttext">Alt text</label>
+          <br />
+          <input
+            name="alttext"
+            id="inpAlttext"
+            type="text"
+            placeholder="Alt text"
+          />
           <br />
           <br />
           <div>
@@ -50,7 +50,9 @@ const CreateSlider = () => {
           </div>
           <br />
           <br />
-          <button type="submit">Save Image</button>
+          <button type="submit" className="btn btn-primary">
+            Save image
+          </button>
         </form>
       </div>
     </div>

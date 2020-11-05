@@ -10,7 +10,7 @@ import DesignRigPage from './designOwnRig/DesignRigPage'
 const MainPage = () => {
     return (
         <>
-        {/* <Slider /> */}
+        <Slider />
         <ProductsPage />
         <DesignRigPage/>
         <SignupNewsletter />

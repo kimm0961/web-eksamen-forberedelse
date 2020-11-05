@@ -7,6 +7,7 @@ import { FaPlus } from "react-icons/fa";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 // Style Features
 import Loader from "react-spinners/ClipLoader";
+import { StarLine } from "../../shared/StarLine";
 
 const AdminProducts = () => {
   //* State Admin */
@@ -56,22 +57,25 @@ const AdminProducts = () => {
   //* Return here */
 
   return (
-    <div>
-      <h1 className="text-center m-5">Product List</h1>
-      <Link to="/admin/create">
-        <button type="button" className="btn btn-success mb-5">
-          <span role="img" className="mr-2" aria-label="plus">
-            <FaPlus />
-          </span>
-          Create new
-        </button>
+    <section className="adminSection">
+      <h1 className="text-center mt-5">
+        <span id="productadmin" className="anchor"></span>Product List
+      </h1>
+      <StarLine />
+      <div className="text-center">
+      <Link to="/admin/create" role="button" className="btn btn-success mb-5">
+        <span role="img" className="mr-2" aria-label="plus">
+          <FaPlus />
+        </span>
+        Create new
       </Link>
+      </div>
       <div className="container">
         <table className="table table-striped bg-light">
           <thead>
             <tr className="thead">
               <th scope="col">ID</th>
-              <th scope="col">Titel</th>
+              <th scope="col">Title</th>
               <th scope="col">Category</th>
               <th scope="col">Update</th>
               <th scope="col">Delete</th>
@@ -80,7 +84,7 @@ const AdminProducts = () => {
           <tbody>{AdminList}</tbody>
         </table>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -7,6 +7,7 @@ import { FaPlus } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 // Style Features
 import Loader from "react-spinners/ClipLoader";
+import { StarLine } from "../../shared/StarLine";
 
 const AdminSlider = () => {
   //* State Admin */
@@ -47,10 +48,10 @@ const AdminSlider = () => {
           />
           <button
             onClick={() => handleDelete(s._id)}
-            className="btn btn-danger"
+            className="btn btn-danger deletebutton"
           >
             <span role="img" aria-label="delete">
-              <MdDeleteForever />
+              <MdDeleteForever  size={28} />
             </span>
           </button>
         </div>
@@ -61,18 +62,19 @@ const AdminSlider = () => {
   //* Return here */
 
   return (
-    <div>
-      <h1 className="text-center m-5">Slider pictures</h1>
-      <Link to="/admin/slider/create">
-        <button type="button" className="btn btn-success mb-5">
-          <span role="img" className="mr-2" aria-label="plus">
-            <FaPlus />
-          </span>
-          Create new
-        </button>
+    <section className="adminSection">
+      <h1 className="text-center mt-5"><span id="slideradmin" className="anchor"></span>Slider pictures</h1>
+      <StarLine />
+      <div className="text-center">
+      <Link to="/admin/slider/create" role="button" className="btn btn-success mb-5">
+        <span role="img" className="mr-2" aria-label="plus">
+          <FaPlus />
+        </span>
+        Create new
       </Link>
+      </div>
       <div className="row">{AdminList}</div>
-    </div>
+    </section>
   );
 };
 
